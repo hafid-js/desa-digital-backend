@@ -5,7 +5,7 @@
         <div class="container-xl">
             <div class="row g-2 align-items-center">
                 <div class="col">
-                    <h1 class="page-title">Kategori</h1>
+                    <h1 class="page-title">Agenda</h1>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
 
                             <div class="row g-2">
                                 <div class="col-12 col-md-auto">
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalUbahKategori"
+                                    <a href="{{ route('admin.agenda.tambah') }}"
                                         class="btn btn-primary btn-sm d-flex d-md-inline-flex align-items-center justify-content-center">
                                         <i class="ti ti-plus icon-lg me-1"></i>
                                         <span>Tambah</span>
@@ -104,7 +104,7 @@
 
                                         <td>
                                             <div class="d-flex flex-wrap gap-1">
-                                                <a href="{{ route('admin.artikel.tambah') }}"
+                                                <a href="{{ route('admin.agenda.ubah') }}"
                                                     class="btn btn-warning btn-sm"><i class="ti ti-edit"></i></a>
                                                 <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                                     data-bs-target="#modalHapusKategori"><i class="ti ti-trash"></i></a>

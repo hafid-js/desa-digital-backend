@@ -15,4 +15,9 @@ class AgendaController extends Controller
     {
         return view('pages.admin.agenda.tambah');
     }
+
+    public function ubah()
+    {
+        return view('pages.admin.agenda.ubah');
+    }
 }

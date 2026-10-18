@@ -18,11 +18,10 @@
                         <div class="card-body">
                             <div class="row g-2">
                                 <div class="col-12 col-md-auto">
-                                    <a href="{{ route('admin.roles.tambah') }}"
-                                        class="btn btn-primary btn-sm d-flex d-md-inline-flex align-items-center justify-content-center">
+                                    <button type="button" class="btn btn-primary btn-sm d-flex d-md-inline-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#modalTambahRole">
                                         <i class="ti ti-plus icon-lg me-1"></i>
                                         <span>Tambah Role</span>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -58,12 +57,51 @@
                                             </td>
                                             <td class="text-center">
                                                 <div class="d-flex justify-content-center gap-1">
-                                                    <a href="{{ route('admin.roles.ubah', $role->id ?? $loop->iteration) }}"
-                                                        class="btn btn-warning btn-sm"><i class="ti ti-edit"></i></a>
+                                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalUbahRole{{ $role->id }}">
+                                                        <i class="ti ti-edit"></i>
+                                                    </button>
                                                     <a href="#" class="btn btn-danger btn-sm"><i class="ti ti-trash"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
+
+                                        <!-- Modal Ubah Role -->
+                                        <div class="modal modal-blur fade" id="modalUbahRole{{ $role->id }}" tabindex="-1" role="dialog" aria-modal="true" aria-hidden="true">
+                                            <div class="modal-dialog modal-md modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Ubah Role: {{ $role->nama }}</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form method="POST">
+                                                            @csrf
+                                                            <div class="space-y">
+                                                                <div>
+                                                                    <label class="form-label" for="nama-role-{{ $role->id }}">Nama Role</label>
+                                                                    <input type="text" value="{{ $role->nama }}" class="form-control" id="nama-role-{{ $role->id }}" name="nama" required>
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <label class="form-label" for="deskripsi-role-{{ $role->id }}">Deskripsi</label>
+                                                                    <textarea id="deskripsi-role-{{ $role->id }}" name="deskripsi" class="form-control" rows="3">{{ $role->deskripsi }}</textarea>
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <label class="form-label" for="status-role-{{ $role->id }}">Status</label>
+                                                                    <select class="form-select" id="status-role-{{ $role->id }}" name="status" required>
+                                                                        <option value="1">Aktif</option>
+                                                                        <option value="0">Nonaktif</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal"><i class="ti ti-x me-1"></i> Batal</button>
+                                                        <button type="button" class="btn btn-primary w-100"><i class="ti ti-check me-1"></i> Simpan</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @empty
                                         <tr>
                                             <td colspan="5" class="text-center py-4">
@@ -79,4 +117,42 @@
             </div>
         </div>
     </main>
+
+    <!-- Modal Tambah Role -->
+    <div class="modal modal-blur fade" id="modalTambahRole" tabindex="-1" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambah Role Baru</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                        @csrf
+                        <div class="space-y">
+                            <div>
+                                <label class="form-label" for="nama-role-tambah">Nama Role</label>
+                                <input type="text" placeholder="Nama role (contoh: Admin, Warga)" class="form-control" id="nama-role-tambah" name="nama" required>
+                            </div>
+                            <div class="col-xl-6">
+                                <label class="form-label" for="deskripsi-role-tambah">Deskripsi</label>
+                                <textarea id="deskripsi-role-tambah" name="deskripsi" class="form-control" rows="3"></textarea>
+                            </div>
+                            <div class="col-xl-6">
+                                <label class="form-label" for="status-role-tambah">Status</label>
+                                <select class="form-select" id="status-role-tambah" name="status" required>
+                                    <option value="1">Aktif</option>
+                                    <option value="0">Nonaktif</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal"><i class="ti ti-x me-1"></i> Batal</button>
+                    <button type="button" class="btn btn-primary w-100"><i class="ti ti-check me-1"></i> Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

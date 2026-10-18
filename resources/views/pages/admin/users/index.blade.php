@@ -70,10 +70,60 @@
                                                 <span class="badge bg-secondary">{{ $user->role ?? 'Warga' }}</span>
                                             </td>
                                             <td class="text-center">
-                                                <a href="{{ route('admin.users.ubah', $user->id ?? $loop->iteration) }}"
-                                                    class="btn btn-warning btn-sm"><i class="ti ti-edit"></i></a>
+                                                <div class="d-flex justify-content-center gap-1">
+                                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalUbahUser{{ $user->id }}">
+                                                        <i class="ti ti-edit"></i>
+                                                    </button>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="ti ti-trash"></i></a>
+                                                </div>
                                             </td>
                                         </tr>
+
+                                        <!-- Modal Ubah User -->
+                                        <div class="modal modal-blur fade" id="modalUbahUser{{ $user->id }}" tabindex="-1" role="dialog" aria-modal="true" aria-hidden="true">
+                                            <div class="modal-dialog modal-md modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Ubah Pengguna: {{ $user->nama }}</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form method="POST">
+                                                            @csrf
+                                                            <div class="space-y">
+                                                                <div>
+                                                                    <label class="form-label" for="nama-user-{{ $user->id }}">Nama Lengkap</label>
+                                                                    <input type="text" value="{{ $user->nama }}" class="form-control" id="nama-user-{{ $user->id }}" name="nama" required>
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <label class="form-label" for="email-user-{{ $user->id }}">Email</label>
+                                                                    <input type="email" value="{{ $user->email }}" class="form-control" id="email-user-{{ $user->id }}" name="email" required>
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <label class="form-label" for="role-user-{{ $user->id }}">Role</label>
+                                                                    <select class="form-select" id="role-user-{{ $user->id }}" name="role" required>
+                                                                        <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>Admin</option>
+                                                                        <option value="petugas_desa" {{ $user->role === 'petugas_desa' ? 'selected' : '' }}>Petugas Desa</option>
+                                                                        <option value="warga" {{ $user->role === 'warga' ? 'selected' : '' }}>Warga</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-xl-6">
+                                                                    <label class="form-label" for="status-user-{{ $user->id }}">Status</label>
+                                                                    <select class="form-select" id="status-user-{{ $user->id }}" name="status" required>
+                                                                        <option value="1" {{ $user->status === '1' || $user->status === true ? 'selected' : '' }}>Aktif</option>
+                                                                        <option value="0" {{ $user->status === '0' || $user->status === false ? 'selected' : '' }}>Nonaktif</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal"><i class="ti ti-x me-1"></i> Batal</button>
+                                                        <button type="button" class="btn btn-primary w-100"><i class="ti ti-check me-1"></i> Simpan</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @empty
                                         <tr>
                                             <td colspan="6" class="text-center py-4">
@@ -89,4 +139,50 @@
             </div>
         </div>
     </main>
+
+    <!-- Modal Tambah Pengguna -->
+    <div class="modal modal-blur fade" id="modalTambahUser" tabindex="-1" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambah Pengguna Baru</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                        @csrf
+                        <div class="space-y">
+                            <div>
+                                <label class="form-label" for="nama-user-tambah">Nama Lengkap</label>
+                                <input type="text" placeholder="Nama lengkap" class="form-control" id="nama-user-tambah" name="nama" required>
+                            </div>
+                            <div class="col-xl-6">
+                                <label class="form-label" for="email-user-tambah">Email</label>
+                                <input type="email" placeholder="email@desa.id" class="form-control" id="email-user-tambah" name="email" required>
+                            </div>
+                            <div class="col-xl-6">
+                                <label class="form-label" for="role-user-tambah">Role</label>
+                                <select class="form-select" id="role-user-tambah" name="role" required>
+                                    <option value="admin">Admin</option>
+                                    <option value="petugas_desa">Petugas Desa</option>
+                                    <option value="warga">Warga</option>
+                                </select>
+                            </div>
+                            <div class="col-xl-6">
+                                <label class="form-label" for="status-user-tambah">Status</label>
+                                <select class="form-select" id="status-user-tambah" name="status" required>
+                                    <option value="1">Aktif</option>
+                                    <option value="0">Nonaktif</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal"><i class="ti ti-x me-1"></i> Batal</button>
+                    <button type="button" class="btn btn-primary w-100"><i class="ti ti-check me-1"></i> Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

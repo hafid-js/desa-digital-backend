@@ -37,9 +37,4 @@ class UserController extends Controller
             ]),
         ]);
     }
-
-    public function ubah($id)
-    {
-        return view('pages.admin.users.ubah', ['id' => $id]);
-    }
 }

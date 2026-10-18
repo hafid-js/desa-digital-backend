@@ -28,14 +28,4 @@ class RoleController extends Controller
             ]),
         ]);
     }
-
-    public function tambah()
-    {
-        return view('pages.admin.roles.tambah');
-    }
-
-    public function ubah($id)
-    {
-        return view('pages.admin.roles.ubah', ['id' => $id]);
-    }
 }

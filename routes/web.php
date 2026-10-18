@@ -75,18 +75,6 @@ Route::get('/admin/roles', [
     RoleController::class, 'index',
 ])->name('admin.roles.index');
 
-Route::get('/admin/roles/tambah', [
-    RoleController::class, 'tambah',
-])->name('admin.roles.tambah');
-
-Route::get('/admin/roles/{id}/ubah', [
-    RoleController::class, 'ubah',
-])->name('admin.roles.ubah');
-
 Route::get('/admin/users', [
     UserController::class, 'index',
 ])->name('admin.users.index');
-
-Route::get('/admin/users/{id}/ubah', [
-    UserController::class, 'ubah',
-])->name('admin.users.ubah');

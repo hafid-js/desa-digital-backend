@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AgendaController;
 use App\Http\Controllers\Admin\ApbdesController;
 use App\Http\Controllers\Admin\ArtikelController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\CuacaController;
 use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\Admin\PengaduanController;
 use Illuminate\Support\Facades\Route;
@@ -59,3 +60,11 @@ Route::get('/admin/pengaduan/{kode}', [
 Route::post('/admin/pengaduan/{kode}/tanggapan', [
     PengaduanController::class, 'tanggapan',
 ])->name('admin.pengaduan.tanggapan');
+
+Route::get('/admin/cuaca', [
+    CuacaController::class, 'index',
+])->name('admin.cuaca.index');
+
+Route::get('/admin/cuaca/tambah', [
+    CuacaController::class, 'tambah',
+])->name('admin.cuaca.tambah');

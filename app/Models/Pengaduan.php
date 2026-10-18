@@ -59,4 +59,11 @@ class Pengaduan extends Model
         return $this->hasMany(PengaduanTanggapan::class, 'pengaduan_id')
             ->orderBy('created_at', 'desc');
     }
+
+    public function lampiran(): HasMany
+    {
+        return $this->hasMany(PengaduanLampiran::class, 'pengaduan_id')
+            ->orderBy('urutan', 'asc')
+            ->orderBy('created_at', 'asc');
+    }
 }

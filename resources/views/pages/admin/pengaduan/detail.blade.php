@@ -72,32 +72,12 @@
                                 </div>
                             </div>
 
-                            @if ($pengaduan->lampiran_foto || $pengaduan->lampiran_pdf || $pengaduan->lampiran_video)
+                            @if($pengaduan->lampiran->count() > 0)
                                 <div class="mb-4">
-                                    <label class="form-label fw-semibold small text-muted">Lampiran</label>
-                                    <div class="d-flex flex-wrap gap-2">
-                                        @if ($pengaduan->lampiran_foto)
-                                            <div class="d-flex flex-column align-items-center gap-1">
-                                                <i class="ti ti-image text-primary fs-3"></i>
-                                                <a href="{{ asset('storage/' . $pengaduan->lampiran_foto) }}"
-                                                    target="_blank" class="btn btn-outline-primary btn-sm">Lihat Foto</a>
-                                            </div>
-                                        @endif
-                                        @if ($pengaduan->lampiran_pdf)
-                                            <div class="d-flex flex-column align-items-center gap-1">
-                                                <i class="ti ti-file-type-pdf text-danger fs-3"></i>
-                                                <a href="{{ asset('storage/' . $pengaduan->lampiran_pdf) }}"
-                                                    target="_blank" class="btn btn-outline-primary btn-sm">Lihat PDF</a>
-                                            </div>
-                                        @endif
-                                        @if ($pengaduan->lampiran_video)
-                                            <div class="d-flex flex-column align-items-center gap-1">
-                                                <i class="ti ti-file-video text-info fs-3"></i>
-                                                <a href="{{ asset('storage/' . $pengaduan->lampiran_video) }}"
-                                                    target="_blank" class="btn btn-outline-primary btn-sm">Lihat Video</a>
-                                            </div>
-                                        @endif
-                                    </div>
+                                    <a href="{{ route('admin.pengaduan.lampiran', $pengaduan->kode_laporan) }}"
+                                        class="btn btn-outline-primary btn-sm w-100"><i
+                                            class="ti ti-file me-1"></i> Lihat Semua Lampiran
+                                        ({{ $pengaduan->lampiran->count() }})</a>
                                 </div>
                             @endif
 

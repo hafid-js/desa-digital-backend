@@ -61,6 +61,10 @@ Route::post('/admin/pengaduan/{kode}/tanggapan', [
     PengaduanController::class, 'tanggapan',
 ])->name('admin.pengaduan.tanggapan');
 
+Route::get('/admin/pengaduan/{kode}/lampiran', [
+    PengaduanController::class, 'lampiran',
+])->name('admin.pengaduan.lampiran');
+
 Route::get('/admin/cuaca', [
     CuacaController::class, 'index',
 ])->name('admin.cuaca.index');

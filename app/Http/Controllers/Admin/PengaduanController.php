@@ -186,11 +186,46 @@ class PengaduanController extends Controller
             'status' => 'verifikasi',
             'tanggapan' => 'Aduan telah diterima dan sedang ditindaklanjuti oleh petugas jalan raya.',
             'waktu_kejadian' => now()->subDays(3),
-            'lampiran_foto' => 'pengaduan/foto-lampu-mati.jpg',
-            'lampiran_pdf' => 'pengaduan/laporan-kecelakaan.pdf',
-            'lampiran_video' => 'pengaduan/video-bukti.mp4',
             'created_at' => now()->subDays(3),
             'updated_at' => now()->subDays(1),
+            'lampiran' => collect([
+                (object) [
+                    'id' => 1,
+                    'pengaduan_id' => 1,
+                    'tipe' => 'foto',
+                    'path' => 'pengaduan/foto-lampu-mati.jpg',
+                    'nama_asli' => 'foto-lampu-mati.jpg',
+                    'urutan' => 1,
+                    'created_at' => now()->subDays(3),
+                ],
+                (object) [
+                    'id' => 2,
+                    'pengaduan_id' => 1,
+                    'tipe' => 'foto',
+                    'path' => 'pengaduan/foto-lampu-mati-2.jpg',
+                    'nama_asli' => 'foto-lampu-mati-2.jpg',
+                    'urutan' => 2,
+                    'created_at' => now()->subDays(3),
+                ],
+                (object) [
+                    'id' => 3,
+                    'pengaduan_id' => 1,
+                    'tipe' => 'pdf',
+                    'path' => 'pengaduan/laporan-kecelakaan.pdf',
+                    'nama_asli' => 'laporan-kecelakaan.pdf',
+                    'urutan' => 3,
+                    'created_at' => now()->subDays(3),
+                ],
+                (object) [
+                    'id' => 4,
+                    'pengaduan_id' => 1,
+                    'tipe' => 'video',
+                    'path' => 'pengaduan/video-bukti.mp4',
+                    'nama_asli' => 'video-bukti.mp4',
+                    'urutan' => 4,
+                    'created_at' => now()->subDays(3),
+                ],
+            ]),
         ];
 
         $tanggapans = collect([
@@ -224,6 +259,53 @@ class PengaduanController extends Controller
                 'selesai' => 'Selesai',
                 'ditolak' => 'Ditolak',
             ],
+        ]);
+    }
+
+    /**
+     * Halaman daftar semua lampiran pengaduan (foto, pdf, video) dalam satu list.
+     */
+    public function lampiran(string $kode)
+    {
+        $pengaduan = (object) [
+            'id' => 1,
+            'kode_laporan' => $kode,
+            'nama_pelapor' => 'Budi Santoso',
+            'wilayah' => 'Dusun Gunung Condong',
+            'lampiran' => collect([
+                (object) [
+                    'id' => 1,
+                    'tipe' => 'foto',
+                    'path' => 'pengaduan/foto-lampu-mati.jpg',
+                    'nama_asli' => 'foto-lampu-mati.jpg',
+                    'urutan' => 1,
+                ],
+                (object) [
+                    'id' => 2,
+                    'tipe' => 'foto',
+                    'path' => 'pengaduan/foto-lampu-mati-2.jpg',
+                    'nama_asli' => 'foto-lampu-mati-2.jpg',
+                    'urutan' => 2,
+                ],
+                (object) [
+                    'id' => 3,
+                    'tipe' => 'pdf',
+                    'path' => 'pengaduan/laporan-kecelakaan.pdf',
+                    'nama_asli' => 'laporan-kecelakaan.pdf',
+                    'urutan' => 3,
+                ],
+                (object) [
+                    'id' => 4,
+                    'tipe' => 'video',
+                    'path' => 'pengaduan/video-bukti.mp4',
+                    'nama_asli' => 'video-bukti.mp4',
+                    'urutan' => 4,
+                ],
+            ])->sortBy('urutan')->values(),
+        ];
+
+        return view('pages.admin.pengaduan.lampiran', [
+            'pengaduan' => $pengaduan,
         ]);
     }
 

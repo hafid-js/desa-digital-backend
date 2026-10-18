@@ -12,7 +12,7 @@ class ApbdesController extends Controller
             'apbdesList' => collect([
                 [
                     'judul' => 'Pendapatan Asli Desa',
-                    'section' => 'pendapatan',
+                    'section' => 'Pendapatan',
                     'jumlah_realisasi' => 149382400,
                     'jumlah_target' => 373456000,
                     'persentase' => 40.00,

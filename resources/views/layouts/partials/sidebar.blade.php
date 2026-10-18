@@ -136,6 +136,11 @@
                                   <i class="ti ti-coins icon-lg"></i></span>
                               <span class="nav-link-title">APBDes</span>
                           </a>
+                          <a href="{{ route('admin.banner.index') }}" type="button" class="nav-link">
+                              <span class="nav-link-icon">
+                                  <i class="ti ti-image icon-lg"></i></span>
+                              <span class="nav-link-title">Banner</span>
+                          </a>
                       </li>
 
 

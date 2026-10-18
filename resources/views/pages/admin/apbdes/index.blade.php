@@ -86,7 +86,7 @@
                                                 {{ $item['judul'] ?? '-' }}
                                             </td>
                                             <td>
-                                                <span class="badge bg-secondary">{{ $item['section'] ?? '-' }}</span>
+                                                <span>{{ $item['section'] ?? '-' }}</span>
                                             </td>
                                             <td class="text-end">
                                                 Rp {{ number_format($item['jumlah_realisasi'] ?? 0, 0, ',', '.') }}

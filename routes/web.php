@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AgendaController;
 use App\Http\Controllers\Admin\ApbdesController;
 use App\Http\Controllers\Admin\ArtikelController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\KategoriController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,3 +38,11 @@ Route::get('/admin/apbdes', [
 Route::get('/admin/apbdes/tambah', [
     ApbdesController::class, 'tambah',
 ])->name('admin.apbdes.tambah');
+
+Route::get('/admin/banner', [
+    BannerController::class, 'index',
+])->name('admin.banner.index');
+
+Route::get('/admin/banner/tambah', [
+    BannerController::class, 'tambah',
+])->name('admin.banner.tambah');

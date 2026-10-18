@@ -67,7 +67,7 @@
                                 </thead>
 
                                 <tbody>
-                                    @forelse($pengaduans as $p)
+                                    @forelse($pengaduans->items as $p)
                                         <tr>
                                             <td>
                                                 <input class="form-check-input m-0" type="checkbox">
@@ -110,7 +110,7 @@
                         <div class="card-footer">
                             <div class="row g-2 justify-content-center justify-content-sm-between">
                                 <div class="col-auto d-flex align-items-center">
-                                    <p class="m-0 text-secondary">Showing <strong>{{ $pengaduans->firstItem() ?? 0 }} to {{ $pengaduans->lastItem() ?? 0 }}</strong> of <strong>{{ $pengaduans->total() }}</strong> entries</p>
+                                    <p class="m-0 text-secondary">Showing <strong>{{ $pengaduans->firstItem ?? 0 }} to {{ $pengaduans->lastItem ?? 0 }}</strong> of <strong>{{ $pengaduans->total }}</strong> entries</p>
                                 </div>
                                 <div class="col-auto">
                                     @if($pengaduans->lastPage > 1)

@@ -1,14 +1,14 @@
-      <!-- BEGIN NAVBAR  -->
-      <!-- BEGIN NAVBAR -->
+      
+      
       <header class="navbar navbar-expand-md d-print-none">
         <div class="container-xl">
-          <!-- BEGIN NAVBAR TOGGLER -->
+          
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle primary navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <!-- END NAVBAR TOGGLER -->
+          
 
-          <!-- BEGIN NAVBAR LOGO -->
+          
           <div class="navbar-brand navbar-brand-autodark pe-0 pe-md-3">
             <a href="." aria-label="Tabler">
               <svg xmlns="http://www.w3.org/2000/svg" width="110" height="32" viewBox="0 0 232 68" class="navbar-brand-image">
@@ -27,14 +27,14 @@
               </svg>
             </a>
           </div>
-          <!-- END NAVBAR LOGO -->
+          
 
-          <!-- BEGIN NAVBAR ACTIONS -->
+          
           <div class="navbar-nav flex-row order-md-last">
             <div class="nav-item d-none d-md-flex me-3">
               <div class="btn-list">
                 <a href="https://tabler.io/pricing?ref=tabler-preview-navbar#bundle" target="_blank" rel="noreferrer" class="btn"
-                  ><!-- Download SVG icon from http://tabler.io/icons/icon/package -->
+                  >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon text-blue">
                     <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
                     <path d="M12 12l8 -4.5" />
@@ -47,35 +47,35 @@
             </div>
 
             <div class="d-none d-md-flex me-3">
-              <!-- BEGIN THEME TOGGLE -->
+              
               <div class="nav-item">
                 <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
-                  <!-- Download SVG icon from http://tabler.io/icons/icon/moon -->
+                  
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon">
                     <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008" />
                   </svg>
                 </a>
 
                 <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
-                  <!-- Download SVG icon from http://tabler.io/icons/icon/sun -->
+                  
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon">
                     <path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
                     <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
                   </svg>
                 </a>
               </div>
-              <!-- END THEME TOGGLE -->
-              <!-- BEGIN NOTIFICATIONS -->
+              
+              
               <div class="nav-item dropdown d-none d-md-flex">
                 <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" aria-label="Show notifications" data-bs-auto-close="outside" aria-expanded="false">
-                  <!-- Download SVG icon from http://tabler.io/icons/icon/bell -->
+                  
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon">
                     <path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
                     <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
                   </svg>
                   <span class="badge bg-red"></span>
                 </a>
-                <!-- BEGIN NAVBAR NOTIFICATIONS -->
+                
                 <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card">
                   <div class="card">
                     <div class="card-header d-flex">
@@ -94,7 +94,7 @@
                           </div>
                           <div class="col-auto">
                             <a href="#" class="list-group-item-actions" aria-label="Add to favorites">
-                              <!-- Download SVG icon from http://tabler.io/icons/icon/star -->
+                              
                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon text-muted">
                                 <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" />
                               </svg>
@@ -113,7 +113,7 @@
                           </div>
                           <div class="col-auto">
                             <a href="#" class="list-group-item-actions show" aria-label="Remove from favorites">
-                              <!-- Download SVG icon from http://tabler.io/icons/icon/star -->
+                              
                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon text-yellow">
                                 <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" />
                               </svg>
@@ -132,7 +132,7 @@
                           </div>
                           <div class="col-auto">
                             <a href="#" class="list-group-item-actions" aria-label="Add to favorites">
-                              <!-- Download SVG icon from http://tabler.io/icons/icon/star -->
+                              
                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon text-muted">
                                 <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" />
                               </svg>
@@ -151,7 +151,7 @@
                           </div>
                           <div class="col-auto">
                             <a href="#" class="list-group-item-actions" aria-label="Add to favorites">
-                              <!-- Download SVG icon from http://tabler.io/icons/icon/star -->
+                              
                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon text-muted">
                                 <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" />
                               </svg>
@@ -168,14 +168,14 @@
                     </div>
                   </div>
                 </div>
-                <!-- END NAVBAR NOTIFICATIONS -->
+                
               </div>
 
-              <!-- END NOTIFICATIONS -->
-              <!-- BEGIN APPS -->
+              
+              
               <div class="nav-item dropdown d-none d-md-flex">
                 <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" aria-label="Show app menu" data-bs-auto-close="outside" aria-expanded="false">
-                  <!-- Download SVG icon from http://tabler.io/icons/icon/apps -->
+                  
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon">
                     <path d="M4 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" />
                     <path d="M4 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" />
@@ -184,7 +184,7 @@
                     <path d="M17 4l0 6" />
                   </svg>
                 </a>
-                <!-- BEGIN NAVBAR APPS -->
+                
                 <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card">
                   <div class="card">
                     <div class="card-header">
@@ -192,7 +192,7 @@
 
                       <div class="card-actions btn-actions">
                         <a href="#" class="btn btn-action" aria-label="App settings">
-                          <!-- Download SVG icon from http://tabler.io/icons/icon/settings -->
+                          
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon">
                             <path
                               d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065"
@@ -646,10 +646,10 @@
                     </div>
                   </div>
                 </div>
-                <!-- END NAVBAR APPS -->
+                
               </div>
-              <!-- END APPS -->
-              <!-- BEGIN LANGUAGE SELECTOR -->
+              
+              
               <div class="nav-item dropdown d-none d-md-flex">
                 <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" aria-label="Select language" data-bs-auto-close="outside" aria-expanded="false"> EN </a>
                 <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end">
@@ -661,10 +661,10 @@
                   ><a class="dropdown-item" href="#" data-lang="vi"> Tiếng Việt </a><a class="dropdown-item" href="#" data-lang="zh"> 中文 </a>
                 </div>
               </div>
-              <!-- END LANGUAGE SELECTOR -->
+              
             </div>
 
-            <!-- BEGIN USER MENU -->
+            
             <div class="nav-item dropdown">
               <a href="#" class="nav-link d-flex lh-1 p-0 px-2" data-bs-toggle="dropdown" aria-label="Open user menu">
                 <span style="background-image: url({{ asset('assets/static/avatars/000m.jpg') }})" class="avatar avatar-sm"></span>
@@ -675,7 +675,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <a class="dropdown-item" href="./profile.html"
-                  ><!-- Download SVG icon from http://tabler.io/icons/icon/user -->
+                  >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon dropdown-item-icon">
                     <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
                     <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
@@ -683,7 +683,7 @@
                   Profile</a
                 >
                 <a class="dropdown-item" href="#"
-                  ><!-- Download SVG icon from http://tabler.io/icons/icon/chart-pie -->
+                  >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon dropdown-item-icon">
                     <path d="M10 3.2a9 9 0 1 0 10.8 10.8a1 1 0 0 0 -1 -1h-6.8a2 2 0 0 1 -2 -2v-7a.9 .9 0 0 0 -1 -.8" />
                     <path d="M15 3.5a9 9 0 0 1 5.5 5.5h-4.5a1 1 0 0 1 -1 -1v-4.5" />
@@ -696,9 +696,9 @@
                 <a class="dropdown-item" href="./sign-in.html">Sign out</a>
               </div>
             </div>
-            <!-- END USER MENU -->
+            
           </div>
-          <!-- END NAVBAR ACTIONS -->
+          
         </div>
       </header>
 

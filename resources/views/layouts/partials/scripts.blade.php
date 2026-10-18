@@ -984,7 +984,7 @@
       })()
     </script>
 
-    <!-- BEGIN PAGE SCRIPTS -->
+    
     <script>
       ;(function () {
         const themeDefaults = {

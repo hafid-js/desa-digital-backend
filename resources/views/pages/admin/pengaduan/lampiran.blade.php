@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-auto">
                     <a href="{{ route('admin.pengaduan.detail', $pengaduan->kode_laporan) }}"
-                        class="btn btn-outline-secondary btn-sm"><i
+                        class="btn btn-primary btn-sm"><i
                             class="ti ti-arrow-left me-1"></i> Kembali ke Detail</a>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                                                 @switch($item->tipe)
                                                     @case('foto')
                                                         <i class="ti ti-image text-primary fs-1 mb-2"></i>
-                                                        <span class="badge bg-primary">Foto</span>
+                                                        <span class="badge">Foto</span>
                                                     @break
                                                     @case('pdf')
                                                         <i class="ti ti-file-type-pdf text-danger fs-1 mb-2"></i>

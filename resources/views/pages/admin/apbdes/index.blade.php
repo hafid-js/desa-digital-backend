@@ -116,7 +116,7 @@
                                             entries</strong></p>
                                 </div>
                                 <div class="col-auto">
-                                    <!-- BEGIN PAGINATION -->
+                                    
                                     <nav aria-label="Pagination">
                                         <ul class="pagination m-0 ms-auto">
                                             <li class="page-item disabled">
@@ -150,7 +150,7 @@
                                             </li>
                                         </ul>
                                     </nav>
-                                    <!-- END PAGINATION -->
+                                    
                                 </div>
                             </div>
                         </div>

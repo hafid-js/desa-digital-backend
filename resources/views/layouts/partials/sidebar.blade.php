@@ -1,15 +1,15 @@
-      <!--  BEGIN SIDEBAR  -->
-      <!-- BEGIN SIDEBAR -->
+      
+      
       <aside class="navbar navbar-vertical navbar-expand-lg">
           <div class="container-fluid">
-              <!-- BEGIN NAVBAR TOGGLER -->
+              
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu"
                   aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle sidebar navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>
-              <!-- END NAVBAR TOGGLER -->
+              
 
-              <!-- BEGIN NAVBAR LOGO -->
+              
               <div class="navbar-brand navbar-brand-autodark">
                   <a href="." aria-label="Tabler">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" width="32" height="32"
@@ -21,9 +21,9 @@
                       </svg>
                   </a>
               </div>
-              <!-- END NAVBAR LOGO -->
+              
 
-              <!-- BEGIN SIDEBAR USER -->
+              
               <div class="navbar-footer">
                   <ul class="navbar-nav">
                       <li class="nav-item dropup">
@@ -37,7 +37,7 @@
                           </a>
                           <div class="dropdown-menu">
                               <a class="dropdown-item"
-                                  href="./profile.html"><!-- Download SVG icon from http://tabler.io/icons/icon/user -->
+                                  href="./profile.html">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                       viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
@@ -47,7 +47,7 @@
                                   </svg>
                                   Profile</a>
                               <a class="dropdown-item"
-                                  href="#"><!-- Download SVG icon from http://tabler.io/icons/icon/chart-pie -->
+                                  href="#">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                       viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
@@ -65,18 +65,18 @@
                       </li>
                   </ul>
               </div>
-              <!-- END SIDEBAR USER -->
+              
 
               <nav class="collapse navbar-collapse" id="sidebar-menu" aria-label="Sidebar">
-                  <!-- BEGIN NAVBAR MENU -->
+                  
                   <ul class="navbar-nav pt-lg-3">
                       <li class="nav-section-title">Overview</li>
-                      <!-- BEGIN NAVBAR ITEM -->
+                      
                       <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
                               data-bs-auto-close="false" role="button" aria-haspopup="true" aria-expanded="false">
                               <span
-                                  class="nav-link-icon"><!-- Download SVG icon from http://tabler.io/icons/icon/home -->
+                                  class="nav-link-icon">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                       viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
@@ -92,28 +92,28 @@
 
 
                           <div class="dropdown-menu">
-                              <!-- BEGIN NAVBAR ITEM -->
+                              
                               <a class="dropdown-item" href="./index.html"> Default </a>
-                              <!-- END NAVBAR ITEM -->
-                              <!-- BEGIN NAVBAR ITEM -->
+                              
+                              
                               <a class="dropdown-item" href="./dashboard-crypto.html">
                                   Crypto
 
                                   <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
                               </a>
-                              <!-- END NAVBAR ITEM -->
-                              <!-- BEGIN NAVBAR ITEM -->
+                              
+                              
                               <a class="dropdown-item" href="./dashboard-crm.html">
                                   CRM
 
                                   <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
                               </a>
-                              <!-- END NAVBAR ITEM -->
+                              
                           </div>
                       </li>
-                      <!-- END NAVBAR ITEM -->
+                      
                       <li class="nav-section-title">Components</li>
-                      <!-- BEGIN NAVBAR ITEM -->
+                      
 
                       <li class="nav-item">
                           <a href="{{ route('admin.artikel.index') }}" type="button" class="nav-link">
@@ -155,11 +155,11 @@
 
 
                   </ul>
-                  <!-- END NAVBAR MENU -->
+                  
 
 
               </nav>
           </div>
       </aside>
-      <!-- END SIDEBAR -->
-      <!--  END SIDEBAR  -->
+      
+      

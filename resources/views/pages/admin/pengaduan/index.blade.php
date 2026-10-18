@@ -113,7 +113,45 @@
                                     <p class="m-0 text-secondary">Showing <strong>{{ $pengaduans->firstItem() ?? 0 }} to {{ $pengaduans->lastItem() ?? 0 }}</strong> of <strong>{{ $pengaduans->total() }}</strong> entries</p>
                                 </div>
                                 <div class="col-auto">
-                                    {{ $pengaduans->links() }}
+                                    @if($pengaduans->lastPage > 1)
+                                        <nav aria-label="Pagination">
+                                            <ul class="pagination m-0 ms-auto">
+                                                @if($pengaduans->currentPage > 1)
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page={{ $pengaduans->currentPage - 1 }}@if($search ?? '')&search={{ $search }}@endif@if($selectedStatus ?? '')&status={{ $selectedStatus }}@endif" aria-label="Previous page">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                stroke-width="2" stroke-linecap="round"
+                                                                stroke-linejoin="round" aria-hidden="true"
+                                                                focusable="false" class="icon">
+                                                                <path d="M15 6l-6 6l6 6"></path>
+                                                            </svg>
+                                                        </a>
+                                                    </li>
+                                                @endif
+                                                @for($i = 1; $i <= $pengaduans->lastPage; $i++)
+                                                    <li class="page-item {{ $i == $pengaduans->currentPage ? 'active' : '' }}">
+                                                        <a class="page-link" href="?page={{ $i }}@if($search ?? '')&search={{ $search }}@endif@if($selectedStatus ?? '')&status={{ $selectedStatus }}@endif">
+                                                            {{ $i }}
+                                                        </a>
+                                                    </li>
+                                                @endfor
+                                                @if($pengaduans->currentPage < $pengaduans->lastPage)
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page={{ $pengaduans->currentPage + 1 }}@if($search ?? '')&search={{ $search }}@endif@if($selectedStatus ?? '')&status={{ $selectedStatus }}@endif" aria-label="Next page">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                stroke-width="2" stroke-linecap="round"
+                                                                stroke-linejoin="round" aria-hidden="true"
+                                                                focusable="false" class="icon">
+                                                                <path d="M9 6l6 6l-6 6"></path>
+                                                            </svg>
+                                                        </a>
+                                                    </li>
+                                                @endif
+                                            </ul>
+                                        </nav>
+                                    @endif
                                 </div>
                             </div>
                         </div>

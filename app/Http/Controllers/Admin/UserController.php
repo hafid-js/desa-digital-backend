@@ -15,24 +15,28 @@ class UserController extends Controller
                     'nama' => 'Budi Santoso',
                     'email' => 'budi@desa.id',
                     'role' => 'Admin',
+                    'status' => '1',
                 ],
                 (object) [
                     'id' => 2,
                     'nama' => 'Siti Rahayu',
                     'email' => 'siti@desa.id',
                     'role' => 'Petugas Desa',
+                    'status' => '1',
                 ],
                 (object) [
                     'id' => 3,
                     'nama' => 'Ahmad Hidayat',
                     'email' => 'ahmad@desa.id',
                     'role' => 'Warga',
+                    'status' => '1',
                 ],
                 (object) [
                     'id' => 4,
                     'nama' => 'Dewi Lestari',
                     'email' => 'dewi@desa.id',
                     'role' => 'Warga',
+                    'status' => '0',
                 ],
             ]),
         ]);

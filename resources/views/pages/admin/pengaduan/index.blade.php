@@ -118,7 +118,7 @@
                                             <ul class="pagination m-0 ms-auto">
                                                 @if($pengaduans->currentPage > 1)
                                                     <li class="page-item">
-                                                        <a class="page-link" href="?page={{ $pengaduans->currentPage - 1 }}@if($search ?? '')&search={{ $search }}@endif@if($selectedStatus ?? '')&status={{ $selectedStatus }}@endif" aria-label="Previous page">
+                                                        <a class="page-link" href="?page={{ $pengaduans->currentPage - 1 }}{{ $queryString ? '&'.$queryString : '' }}" aria-label="Previous page">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                                 stroke-width="2" stroke-linecap="round"
@@ -131,14 +131,14 @@
                                                 @endif
                                                 @for($i = 1; $i <= $pengaduans->lastPage; $i++)
                                                     <li class="page-item {{ $i == $pengaduans->currentPage ? 'active' : '' }}">
-                                                        <a class="page-link" href="?page={{ $i }}@if($search ?? '')&search={{ $search }}@endif@if($selectedStatus ?? '')&status={{ $selectedStatus }}@endif">
+                                                        <a class="page-link" href="?page={{ $i }}{{ $queryString ? '&'.$queryString : '' }}">
                                                             {{ $i }}
                                                         </a>
                                                     </li>
                                                 @endfor
                                                 @if($pengaduans->currentPage < $pengaduans->lastPage)
                                                     <li class="page-item">
-                                                        <a class="page-link" href="?page={{ $pengaduans->currentPage + 1 }}@if($search ?? '')&search={{ $search }}@endif@if($selectedStatus ?? '')&status={{ $selectedStatus }}@endif" aria-label="Next page">
+                                                        <a class="page-link" href="?page={{ $pengaduans->currentPage + 1 }}{{ $queryString ? '&'.$queryString : '' }}" aria-label="Next page">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                                 stroke-width="2" stroke-linecap="round"

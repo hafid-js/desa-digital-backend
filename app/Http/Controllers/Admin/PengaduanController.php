@@ -160,6 +160,10 @@ class PengaduanController extends Controller
             ],
             'selectedStatus' => $request->status,
             'search' => $request->search,
+            'queryString' => http_build_query(array_filter([
+                'search' => $request->search ?: null,
+                'status' => $request->status ?: null,
+            ])),
         ]);
     }
 

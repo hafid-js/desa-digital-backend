@@ -83,19 +83,19 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                {{ $item->judul ?? '-' }}
+                                                {{ $item['judul'] ?? '-' }}
                                             </td>
                                             <td>
-                                                <span class="badge bg-secondary">{{ $item->section ?? '-' }}</span>
+                                                <span class="badge bg-secondary">{{ $item['section'] ?? '-' }}</span>
                                             </td>
                                             <td class="text-end">
-                                                {{ $item->jumlah_realisasi ?? '-' }}
+                                                Rp {{ number_format($item['jumlah_realisasi'] ?? 0, 0, ',', '.') }}
                                             </td>
                                             <td class="text-end">
-                                                {{ $item->jumlah_target ?? '-' }}
+                                                Rp {{ number_format($item['jumlah_target'] ?? 0, 0, ',', '.') }}
                                             </td>
                                             <td class="text-center">
-                                                {{ $item->tahun_anggaran ?? '-' }}
+                                                {{ $item['tahun_anggaran'] ?? '-' }}
                                             </td>
                                         </tr>
                                     @empty
@@ -112,7 +112,7 @@
                         <div class="card-footer">
                             <div class="row g-2 justify-content-center justify-content-sm-between">
                                 <div class="col-auto d-flex align-items-center">
-                                    <p class="m-0 text-secondary">Showing <strong>1 to 8</strong> of <strong>0
+                                    <p class="m-0 text-secondary">Showing <strong>1 to 8</strong> of <strong>5
                                             entries</strong></p>
                                 </div>
                                 <div class="col-auto">

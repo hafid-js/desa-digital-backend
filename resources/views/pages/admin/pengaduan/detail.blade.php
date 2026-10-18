@@ -77,21 +77,25 @@
                                     <label class="form-label fw-semibold small text-muted">Lampiran</label>
                                     <div class="d-flex flex-wrap gap-2">
                                         @if ($pengaduan->lampiran_foto)
-                                            <img src="{{ asset('storage/' . $pengaduan->lampiran_foto) }}"
-                                                alt="Lampiran foto" class="img-fluid border rounded"
-                                                style="max-height: 150px;">
+                                            <div class="d-flex flex-column align-items-center gap-1">
+                                                <i class="ti ti-image text-primary fs-3"></i>
+                                                <a href="{{ asset('storage/' . $pengaduan->lampiran_foto) }}"
+                                                    target="_blank" class="btn btn-outline-primary btn-sm">Lihat Foto</a>
+                                            </div>
                                         @endif
                                         @if ($pengaduan->lampiran_pdf)
-                                            <div class="border rounded p-1" style="width: 200px; height: 200px;">
-                                                <embed src="{{ asset('storage/' . $pengaduan->lampiran_pdf) }}"
-                                                    type="application/pdf" width="100%" height="100%">
+                                            <div class="d-flex flex-column align-items-center gap-1">
+                                                <i class="ti ti-file-type-pdf text-danger fs-3"></i>
+                                                <a href="{{ asset('storage/' . $pengaduan->lampiran_pdf) }}"
+                                                    target="_blank" class="btn btn-outline-primary btn-sm">Lihat PDF</a>
                                             </div>
                                         @endif
                                         @if ($pengaduan->lampiran_video)
-                                            <video src="{{ asset('storage/' . $pengaduan->lampiran_video) }}"
-                                                controls class="border rounded" width="200" height="150">
-                                                Browser tidak mendukung pemutaran video.
-                                            </video>
+                                            <div class="d-flex flex-column align-items-center gap-1">
+                                                <i class="ti ti-file-video text-info fs-3"></i>
+                                                <a href="{{ asset('storage/' . $pengaduan->lampiran_video) }}"
+                                                    target="_blank" class="btn btn-outline-primary btn-sm">Lihat Video</a>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>

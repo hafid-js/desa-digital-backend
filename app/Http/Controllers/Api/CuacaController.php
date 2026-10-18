@@ -5,34 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\CuacaLokasi;
 use Carbon\Carbon;
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
 class CuacaController extends Controller
 {
-    /**
-     * Daftar prakiraan cuaca untuk semua lokasi aktif.
-     * Data diambil dari OpenWeatherMap API lalu diformat untuk Flutter.
-     *
-     * Response:
-     *  {
-     *    "data": [
-     *      {
-     *        "id": "1",
-     *        "name": "Kutoarjo",
-     *        "forecasts": [
-     *          {
-     *            "day": "Sabtu, 18 Okt",
-     *            "condition": "Berawan",
-     *            "temperature": "30-32",
-     *            "humidity": "45-55%"
-     *          }
-     *        ]
-     *      }
-     *    ],
-     *    "meta": { ... }
-     *  }
-     */
     public function index()
     {
         $apiKey = config('services.openweather.key');
@@ -76,9 +52,6 @@ class CuacaController extends Controller
         ]);
     }
 
-    /**
-     * Prakiraan cuaca untuk satu lokasi (by id).
-     */
     public function show(string $id)
     {
         $apiKey = config('services.openweather.key');
@@ -121,9 +94,6 @@ class CuacaController extends Controller
         ]);
     }
 
-    /**
-     * Transformasi respons OpenWeatherMap ke format Flutter.
-     */
     private function transformOpenWeatherMap(array $raw, string $lokasiId, string $namaLokasi): ?array
     {
         $main = $raw['main'] ?? [];
@@ -156,9 +126,6 @@ class CuacaController extends Controller
         ];
     }
 
-    /**
-     * Format timestamp ke hari lokal (contoh: "Sabtu, 18 Okt").
-     */
     private function formatHari(?int $dt, int $timezone): string
     {
         if (! $dt) {
@@ -195,9 +162,6 @@ class CuacaController extends Controller
         return "{$hari}, {$waktuLokal->day} {$bulan}";
     }
 
-    /**
-     * Map kode kondisi OpenWeatherMap ke bahasa Indonesia.
-     */
     private function mapKondisi(int $id, string $main): string
     {
         $map = [

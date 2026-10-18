@@ -134,7 +134,6 @@
                                 dikirim tanpa perubahan.
                             </p>
 
-
                             <div id="document-preview" class="list-group mt-3"></div>
 
                             <input type="file" id="document-files" name="dokumen[]" multiple hidden>

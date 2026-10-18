@@ -198,8 +198,6 @@
                     </div>
                 </div>
 
-
-
             </div>
         </div>
     </main>
@@ -347,7 +345,6 @@
         </div>
     </div>
 
-
     <div class="modal modal-blur fade" id="modalTambahAgenda" tabindex="-1" role="dialog" aria-modal="true"
         aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-start">
@@ -385,7 +382,6 @@
                                                 alt="Brainstorming session with creative designers"
                                                 class="rounded form-imagecheck-image" height="300" width="300">
                                         </div>
-
 
                                         <div class="row g-2">
                                             <div class="col-12 col-md-6">

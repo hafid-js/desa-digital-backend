@@ -9,22 +9,6 @@ use Illuminate\Support\Facades\Validator;
 
 class ApbdesController extends Controller
 {
-    /**
-     * Tampilkan ringkasan APBDes grouped by section.
-     *
-     * Query params:
-     *  - tahun (integer, required): tahun anggaran, default tahun sekarang
-     *
-     * Response:
-     *  {
-     *    "data": {
-     *      "pelaksanaan": { "title": "...", "items": [...] },
-     *      "pendapatan": { "title": "...", "items": [...] },
-     *      "pembelanjaan": { "title": "...", "items": [...] }
-     *    },
-     *    "meta": { ... }
-     *  }
-     */
     public function index(Request $request)
     {
         $validated = Validator::make($request->all(), [
@@ -70,9 +54,6 @@ class ApbdesController extends Controller
         ]);
     }
 
-    /**
-     * Simpan data APBDes baru (admin).
-     */
     public function store(Request $request)
     {
         $validated = Validator::make($request->all(), [
@@ -84,7 +65,6 @@ class ApbdesController extends Controller
             'tahun_anggaran' => ['required', 'integer', 'min:2000', 'max:2100'],
         ])->validate();
 
-        // Hitung persentase otomatis jika belum dikirim
         if (! isset($validated['persentase'])) {
             $target = $validated['jumlah_target'] ?? 0;
             $real = $validated['jumlah_realisasi'] ?? 0;
@@ -101,9 +81,6 @@ class ApbdesController extends Controller
         ], 201);
     }
 
-    /**
-     * Ubah data APBDes (admin).
-     */
     public function update(Request $request, Apbdes $apbdes)
     {
         $validated = Validator::make($request->all(), [
@@ -115,7 +92,6 @@ class ApbdesController extends Controller
             'tahun_anggaran' => ['sometimes', 'integer', 'min:2000', 'max:2100'],
         ])->validate();
 
-        // Hitung ulang persentase otomatis jika real/target berubah
         if (isset($validated['jumlah_realisasi']) || isset($validated['jumlah_target'])) {
             $target = $validated['jumlah_target'] ?? $apbdes->jumlah_target;
             $real = $validated['jumlah_realisasi'] ?? $apbdes->jumlah_realisasi;

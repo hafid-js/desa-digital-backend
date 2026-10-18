@@ -318,12 +318,9 @@
                     </div>
                 </div>
 
-
-
             </div>
         </div>
     </main>
-
 
     <div class="modal modal-blur fade" id="modalHapusKategori" tabindex="-1" role="dialog" aria-modal="true"
         aria-hidden="true">

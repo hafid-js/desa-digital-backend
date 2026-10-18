@@ -1,7 +1,7 @@
-    
+
     <div class="settings">
       <button type="button" class="btn btn-floating btn-icon btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-settings" aria-controls="offcanvas-settings" aria-label="Customize">
-        
+
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon">
           <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
           <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
@@ -15,7 +15,7 @@
 
         <div class="offcanvas-body p-0">
           <section class="p-4 text-center border-bottom">
-            
+
             <svg class="mb-3" xmlns="http://www.w3.org/2000/svg" height="120" fill="none" viewBox="0 0 800 600">
               <style>
                 :where(.theme-dark, [data-bs-theme='dark']) .tblr-illustrations-computer-fix-a {
@@ -161,7 +161,7 @@
               />
               <path d="M601.002 350.178C579.177 366.095 549.387 377.694 514.39 381.184C511.347 375.792 508.372 370.361 505.466 364.894C501.376 357.2 497.519 349.634 493.896 342.197C505.942 349.292 519.121 354.256 532.854 356.871C555.749 361.042 579.355 358.723 601.002 350.178Z" fill="black" opacity="0.1" />
             </svg>
-            
+
             <h2 class="offcanvas-title mb-1" id="offcanvas-settings-title">Make Tabler your own</h2>
             <p class="text-secondary m-0">Pick the look and layout of this preview. Your choices are saved in this browser.</p>
           </section>
@@ -880,7 +880,7 @@
 
         <div class="offcanvas-footer border-top space-y-2">
           <button type="button" class="btn w-100" id="reset-changes">
-            
+
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="icon"><path d="M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5" /></svg>
             Reset changes
           </button>
@@ -888,4 +888,4 @@
         </div>
       </form>
     </div>
-    
+

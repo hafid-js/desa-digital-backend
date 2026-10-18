@@ -1,15 +1,13 @@
-      
-      
+
+
       <aside class="navbar navbar-vertical navbar-expand-lg">
           <div class="container-fluid">
-              
+
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu"
                   aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle sidebar navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>
-              
 
-              
               <div class="navbar-brand navbar-brand-autodark">
                   <a href="." aria-label="Tabler">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" width="32" height="32"
@@ -21,9 +19,7 @@
                       </svg>
                   </a>
               </div>
-              
 
-              
               <div class="navbar-footer">
                   <ul class="navbar-nav">
                       <li class="nav-item dropup">
@@ -65,56 +61,12 @@
                       </li>
                   </ul>
               </div>
-              
 
               <nav class="collapse navbar-collapse" id="sidebar-menu" aria-label="Sidebar">
-                  
+
                   <ul class="navbar-nav pt-lg-3">
-                      <li class="nav-section-title">Overview</li>
-                      
-                      <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                              data-bs-auto-close="false" role="button" aria-haspopup="true" aria-expanded="false">
-                              <span
-                                  class="nav-link-icon">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
-                                      focusable="false" class="icon">
-                                      <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
-                                      <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-                                      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-                                  </svg></span>
 
-                              <span class="nav-link-title">Dashboards</span>
-                          </a>
-
-
-
-                          <div class="dropdown-menu">
-                              
-                              <a class="dropdown-item" href="./index.html"> Default </a>
-                              
-                              
-                              <a class="dropdown-item" href="./dashboard-crypto.html">
-                                  Crypto
-
-                                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
-                              </a>
-                              
-                              
-                              <a class="dropdown-item" href="./dashboard-crm.html">
-                                  CRM
-
-                                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
-                              </a>
-                              
-                          </div>
-                      </li>
-                      
-                      <li class="nav-section-title">Components</li>
-                      
-
+                      <li class="nav-section-title">Main Menu</li>
                       <li class="nav-item">
                           <a href="{{ route('admin.artikel.index') }}" type="button" class="nav-link">
                               <span class="nav-link-icon">
@@ -153,13 +105,9 @@
                           </a>
                       </li>
 
-
                   </ul>
-                  
-
 
               </nav>
           </div>
       </aside>
-      
-      
+

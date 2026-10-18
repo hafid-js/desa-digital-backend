@@ -15,10 +15,13 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+                        <div class="card-status-top bg-primary"></div>
                         <div class="card-body">
                             <div class="row g-2">
                                 <div class="col-12 col-md-auto">
-                                    <button type="button" class="btn btn-primary btn-sm d-flex d-md-inline-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#modalTambahCuaca">
+                                    <button type="button"
+                                        class="btn btn-primary btn-sm d-flex d-md-inline-flex align-items-center justify-content-center"
+                                        data-bs-toggle="modal" data-bs-target="#modalTambahCuaca">
                                         <i class="ti ti-plus icon-lg me-1"></i>
                                         <span>Tambah Lokasi</span>
                                     </button>
@@ -81,8 +84,10 @@
                                             </td>
                                             <td class="text-center">
                                                 <div class="d-flex justify-content-center flex-wrap gap-1">
-                                                    <a href="#" class="btn btn-warning btn-sm"><i class="ti ti-edit"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i class="ti ti-trash"></i></a>
+                                                    <a href="#" class="btn btn-warning btn-sm"><i
+                                                            class="ti ti-edit"></i></a>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i
+                                                            class="ti ti-trash"></i></a>
                                                 </div>
                                             </td>
                                             <td class="text-center">
@@ -95,7 +100,8 @@
                                                 {{ $item['longitude'] ?? '-' }}
                                             </td>
                                             <td class="text-center">
-                                                <span class="badge bg-{{ $item['is_aktif'] ? 'green text-green-fg' : 'secondary text-secondary-fg' }}">
+                                                <span
+                                                    class="badge bg-{{ $item['is_aktif'] ? 'green text-green-fg' : 'secondary text-secondary-fg' }}">
                                                     {{ $item['is_aktif'] ? 'Aktif' : 'Nonaktif' }}
                                                 </span>
                                             </td>
@@ -125,9 +131,8 @@
                                                     aria-label="Previous page">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round" aria-hidden="true"
-                                                        focusable="false" class="icon">
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        aria-hidden="true" focusable="false" class="icon">
                                                         <path d="M15 6l-6 6l6 6"></path>
                                                     </svg>
                                                 </a>
@@ -142,9 +147,8 @@
                                                 <a class="page-link" href="#" aria-label="Next page">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round" aria-hidden="true"
-                                                        focusable="false" class="icon">
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        aria-hidden="true" focusable="false" class="icon">
                                                         <path d="M9 6l6 6l-6 6"></path>
                                                     </svg>
                                                 </a>
@@ -160,8 +164,8 @@
         </div>
     </main>
 
-    <!-- Modal Tambah Lokasi Cuaca -->
-    <div class="modal modal-blur fade" id="modalTambahCuaca" tabindex="-1" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal modal-blur fade" id="modalTambahCuaca" tabindex="-1" role="dialog" aria-modal="true"
+        aria-hidden="true">
         <div class="modal-dialog modal-md modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -198,11 +202,10 @@
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal"><i
-                            class="ti ti-x me-1"></i> Batal</button>
-                    <button type="button" class="btn btn-primary w-100"><i
-                            class="ti ti-check me-1"></i> Simpan</button>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="ti ti-x me-1"></i>
+                        Batal</button>
+                    <button type="button" class="btn btn-primary"><i class="ti ti-check me-1"></i> Simpan</button>
                 </div>
             </div>
         </div>

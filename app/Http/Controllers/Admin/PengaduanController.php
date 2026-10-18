@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Validator;
 
 class PengaduanController extends Controller
 {
-    /**
-     * Daftar semua pengaduan (kelola admin).
-     * Admin hanya bisa lihat & tanggapi, tidak bisa menambah data baru.
-     * Data pengaduan datang dari aplikasi Flutter warga.
-     */
     public function index(Request $request)
     {
         $pengaduans = collect([
@@ -113,12 +108,10 @@ class PengaduanController extends Controller
             ],
         ]);
 
-        // Filter status
         if ($request->filled('status')) {
             $pengaduans = $pengaduans->where('status', $request->status);
         }
 
-        // Filter search
         if ($request->filled('search')) {
             $search = strtolower($request->search);
             $pengaduans = $pengaduans->filter(fn ($p) => stripos($p->kode_laporan ?? '', $search) !== false ||
@@ -130,7 +123,6 @@ class PengaduanController extends Controller
 
         $pengaduans = $pengaduans->sortByDesc('created_at')->values();
 
-        // Pagination manual (10 per halaman)
         $perPage = 10;
         $currentPage = $request->input('page', 1);
         $total = $pengaduans->count();
@@ -168,9 +160,6 @@ class PengaduanController extends Controller
         ]);
     }
 
-    /**
-     * Detail pengaduan beserta riwayat tanggapan.
-     */
     public function detail(string $kode)
     {
         $pengaduan = (object) [
@@ -262,9 +251,6 @@ class PengaduanController extends Controller
         ]);
     }
 
-    /**
-     * Halaman daftar semua lampiran pengaduan (foto, pdf, video) dalam satu list.
-     */
     public function lampiran(string $kode)
     {
         $pengaduan = (object) [
@@ -309,10 +295,6 @@ class PengaduanController extends Controller
         ]);
     }
 
-    /**
-     * Beri tanggapan dan/atau ubah status pengaduan (admin/petugas desa).
-     * Tidak ada endpoint tambah pengaduan dari sisi admin.
-     */
     public function tanggapan(Request $request, string $kode)
     {
         $validated = Validator::make($request->all(), [

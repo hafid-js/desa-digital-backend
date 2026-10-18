@@ -984,7 +984,6 @@
       })()
     </script>
 
-    
     <script>
       ;(function () {
         const themeDefaults = {

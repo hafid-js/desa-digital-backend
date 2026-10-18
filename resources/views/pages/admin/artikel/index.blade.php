@@ -73,7 +73,6 @@
                     </div>
                 </div>
 
-
                 <div class="col-md-9 col-sm-12">
                     <div class="card">
                                     <div class="card-status-top bg-primary"></div>
@@ -339,7 +338,6 @@
             </div>
         </div>
     </main>
-
 
     <div class="modal modal-blur fade" id="modalHapusArtikel" tabindex="-1" role="dialog" aria-modal="true"
         aria-hidden="true">

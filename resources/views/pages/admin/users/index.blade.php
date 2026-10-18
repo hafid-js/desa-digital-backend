@@ -15,6 +15,17 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+                        <div class="card-body">
+                            <div class="row g-2">
+                                <div class="col-12 col-md-auto">
+                                    <button type="button" class="btn btn-primary btn-sm d-flex d-md-inline-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#modalTambahUser">
+                                        <i class="ti ti-plus icon-lg me-1"></i>
+                                        <span>Tambah Pengguna</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="card-body border-bottom py-3">
                             <div class="d-flex">
                                 <div class="text-secondary">

@@ -20,7 +20,7 @@ class ApbdesController extends Controller
                 ],
                 [
                     'judul' => 'Dana Desa',
-                    'section' => 'pendapatan',
+                    'section' => 'Pendapatan',
                     'jumlah_realisasi' => 174647992,
                     'jumlah_target' => 434491400,
                     'persentase' => 40.20,
@@ -28,7 +28,7 @@ class ApbdesController extends Controller
                 ],
                 [
                     'judul' => 'Bidang Penyelenggaraan Pemerintahan',
-                    'section' => 'pembelanjaan',
+                    'section' => 'Pembelanjaan',
                     'jumlah_realisasi' => 173323325,
                     'jumlah_target' => 642272557,
                     'persentase' => 26.83,
@@ -36,7 +36,7 @@ class ApbdesController extends Controller
                 ],
                 [
                     'judul' => 'Bidang Pelaksanaan Pembangunan Desa',
-                    'section' => 'pembelanjaan',
+                    'section' => 'Pembelanjaan',
                     'jumlah_realisasi' => 63372100,
                     'jumlah_target' => 369859500,
                     'persentase' => 17.13,
@@ -44,7 +44,7 @@ class ApbdesController extends Controller
                 ],
                 [
                     'judul' => 'Pelaksanaan Umum',
-                    'section' => 'pelaksanaan',
+                    'section' => 'Pelaksanaan',
                     'jumlah_realisasi' => 280178925,
                     'jumlah_target' => 1099315413,
                     'persentase' => 25.49,

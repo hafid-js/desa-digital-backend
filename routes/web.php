@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ApbdesController;
 use App\Http\Controllers\Admin\ArtikelController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\KategoriController;
+use App\Http\Controllers\Admin\PengaduanController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
@@ -46,3 +47,15 @@ Route::get('/admin/banner', [
 Route::get('/admin/banner/tambah', [
     BannerController::class, 'tambah',
 ])->name('admin.banner.tambah');
+
+Route::get('/admin/pengaduan', [
+    PengaduanController::class, 'index',
+])->name('admin.pengaduan.index');
+
+Route::get('/admin/pengaduan/{kode}', [
+    PengaduanController::class, 'detail',
+])->name('admin.pengaduan.detail');
+
+Route::post('/admin/pengaduan/{kode}/tanggapan', [
+    PengaduanController::class, 'tanggapan',
+])->name('admin.pengaduan.tanggapan');

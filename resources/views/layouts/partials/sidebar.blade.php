@@ -138,8 +138,13 @@
                           </a>
                           <a href="{{ route('admin.banner.index') }}" type="button" class="nav-link">
                               <span class="nav-link-icon">
-                                  <i class="ti ti-image icon-lg"></i></span>
+                                 <i class="ti ti-carousel-horizontal icon-lg"></i></span>
                               <span class="nav-link-title">Banner</span>
+                          </a>
+                          <a href="{{ route('admin.pengaduan.index') }}" type="button" class="nav-link">
+                              <span class="nav-link-icon">
+                                  <i class="ti ti-alert-circle icon-lg"></i></span>
+                              <span class="nav-link-title">Pengaduan</span>
                           </a>
                       </li>
 

@@ -71,10 +71,10 @@
                                             <td class="text-center">
                                                 <span class="text-secondary">{{ $loop->iteration }}</span>
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 {{ $user->nama ?? '-' }}
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 {{ $user->email ?? '-' }}
                                             </td>
                                             <td class="text-center">
@@ -128,9 +128,9 @@
                                                             </div>
                                                         </form>
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal"><i class="ti ti-x me-1"></i> Batal</button>
-                                                        <button type="button" class="btn btn-primary w-100"><i class="ti ti-check me-1"></i> Simpan</button>
+                                              <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="ti ti-x me-1"></i> Batal</button>
+                                                        <button type="button" class="btn btn-primary"><i class="ti ti-check me-1"></i> Simpan</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -189,9 +189,9 @@
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal"><i class="ti ti-x me-1"></i> Batal</button>
-                    <button type="button" class="btn btn-primary w-100"><i class="ti ti-check me-1"></i> Simpan</button>
+                 <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="ti ti-x me-1"></i> Batal</button>
+                    <button type="button" class="btn btn-primary"><i class="ti ti-check me-1"></i> Simpan</button>
                 </div>
             </div>
         </div>

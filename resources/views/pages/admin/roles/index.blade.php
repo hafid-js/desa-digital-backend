@@ -49,10 +49,10 @@
                                             <td class="text-center">
                                                 <span class="text-secondary">{{ $loop->iteration }}</span>
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 {{ $role->nama ?? '-' }}
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 {{ $role->deskripsi ?? '-' }}
                                             </td>
                                             <td class="text-center">

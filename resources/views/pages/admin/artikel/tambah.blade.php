@@ -31,7 +31,7 @@
 
                                         <input type="text" placeholder="Judul Artikel" class="form-control"
                                             id="judul-artikel" name="judul_artikel">
-                                        <p class="text-orange mt-2">Judul artikel minimal 5 karakter dan maksimal 200
+                                        <p class="text-secondary mt-2">Judul artikel minimal 5 karakter dan maksimal 200
                                             karakter</p>
                                     </div>
 
@@ -57,7 +57,7 @@
                                         <input type="file" id="thumbnail-artikel" name="thumbnail" class="form-control"
                                             accept="image/jpeg,image/png,image/webp">
 
-                                        <p class="text-orange mt-2 mb-2">
+                                        <p class="text-secondary mt-2 mb-2">
                                             Satu gambar thumbnail untuk artikel. Rasio tampilan
                                             diseragamkan agar konsisten.
                                         </p>
@@ -79,7 +79,7 @@
                                         <input type="file" id="photo-picker" class="form-control"
                                             accept="image/jpeg,image/png,image/webp" multiple>
 
-                                        <p class="text-orange mt-2">
+                                        <p class="text-secondary mt-2">
                                             Pilih beberapa foto sekaligus. Thumbnail akan ditampilkan
                                             dengan rasio yang seragam; klik thumbnail untuk melihat
                                             foto secara penuh.
@@ -127,7 +127,7 @@
                             <input type="file" id="document-picker" class="form-control"
                                 accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.csv,.txt" multiple>
 
-                            <p class="text-orange mt-2">
+                            <p class="text-secondary mt-2">
                                 Pilih dokumen pendukung artikel. File asli akan
                                 dikirim tanpa perubahan.
                             </p>

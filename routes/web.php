@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AgendaController;
+use App\Http\Controllers\Admin\ApbdesController;
 use App\Http\Controllers\Admin\ArtikelController;
 use App\Http\Controllers\Admin\KategoriController;
 use Illuminate\Support\Facades\Route;
@@ -28,3 +29,11 @@ Route::get('/admin/agenda', [
 Route::get('/admin/agenda/detail', [
     AgendaController::class, 'detail',
 ])->name('admin.agenda.detail');
+
+Route::get('/admin/apbdes', [
+    ApbdesController::class, 'index',
+])->name('admin.apbdes.index');
+
+Route::get('/admin/apbdes/tambah', [
+    ApbdesController::class, 'tambah',
+])->name('admin.apbdes.tambah');

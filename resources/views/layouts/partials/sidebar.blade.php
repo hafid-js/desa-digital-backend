@@ -131,6 +131,11 @@
                                   <i class="ti ti-calendar-week icon-lg"></i></span>
                               <span class="nav-link-title">Agenda</span>
                           </a>
+                          <a href="{{ route('admin.apbdes.index') }}" type="button" class="nav-link">
+                              <span class="nav-link-icon">
+                                  <i class="ti ti-coins icon-lg"></i></span>
+                              <span class="nav-link-title">APBDes</span>
+                          </a>
                       </li>
 
 

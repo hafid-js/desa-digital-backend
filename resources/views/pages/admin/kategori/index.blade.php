@@ -41,7 +41,7 @@
                         <div class="card-body">
                             <div class="row g-2">
                                 <div class="col-12 col-md-auto">
-                                    <select name="" class="form-select  d-flex d-md-inline-flex">
+                                    <select name="" class="form-select form-select-sm d-flex d-md-inline-flex">
                                         <option value="">Pilih Status</option>
                                         <option value="1">Aktif</option>
                                         <option value="2">Tidak Aktif</option>

@@ -85,7 +85,7 @@
                                                 {{ $p->rincian ?? '-' }}
                                             </td>
                                             <td class="text-center">
-                                                <span class="badge bg-{{ $p->status === 'selesai' ? 'green text-green-fg' : ($p->status === 'ditolak' ? 'red text-red-fg' : ($p->status === 'diproses' ? 'orange text-orange-fg' : 'blue text-blue-fg')) }}">{{ ucfirst($p->status) }}</span>
+                                                <span class="badge badge-pill bg-{{ $p->status === 'selesai' ? 'green text-green-fg' : ($p->status === 'ditolak' ? 'red text-red-fg' : ($p->status === 'verifikasi' ? 'cyan text-cyan-fg' : ($p->status === 'diproses' ? 'orange text-orange-fg' : 'blue text-blue-fg'))) }}">{{ ucfirst($p->status) }}</span>
                                             </td>
                                             <td class="text-center">
                                                 {{ $p->created_at ? $p->created_at->format('d M Y H:i') : '-' }}

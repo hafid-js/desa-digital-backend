@@ -26,7 +26,7 @@ class PengaduanController extends Controller
                 'longitude' => 110.1234500,
                 'rincian' => 'Lampu jalan di jalan raya mati sejak 3 hari lalu, tempatnya di depan warung pak RT.',
                 'visibilitas' => 'public',
-                'status' => 'diproses',
+                'status' => 'verifikasi',
                 'tanggapan' => 'Aduan telah diterima dan sedang ditindaklanjuti.',
                 'waktu_kejadian' => now()->subDays(3),
                 'lampiran_foto' => null,
@@ -154,6 +154,7 @@ class PengaduanController extends Controller
             'pengaduans' => $paginator,
             'statuses' => [
                 'diterima' => 'Diterima',
+                'verifikasi' => 'Verifikasi',
                 'diproses' => 'Diproses',
                 'selesai' => 'Selesai',
                 'ditolak' => 'Ditolak',
@@ -182,12 +183,12 @@ class PengaduanController extends Controller
             'longitude' => 110.1234500,
             'rincian' => 'Lampu jalan di jalan raya mati sejak 3 hari lalu, tempatnya di depan warung pak RT. Mohon segera diperbaiki agar malam menjadi lebih aman.',
             'visibilitas' => 'public',
-            'status' => 'diproses',
+            'status' => 'verifikasi',
             'tanggapan' => 'Aduan telah diterima dan sedang ditindaklanjuti oleh petugas jalan raya.',
             'waktu_kejadian' => now()->subDays(3),
-            'lampiran_foto' => null,
-            'lampiran_pdf' => null,
-            'lampiran_video' => null,
+            'lampiran_foto' => 'pengaduan/foto-lampu-mati.jpg',
+            'lampiran_pdf' => 'pengaduan/laporan-kecelakaan.pdf',
+            'lampiran_video' => 'pengaduan/video-bukti.mp4',
             'created_at' => now()->subDays(3),
             'updated_at' => now()->subDays(1),
         ];
@@ -198,7 +199,7 @@ class PengaduanController extends Controller
                 'pengaduan_id' => 1,
                 'tanggapan' => 'Aduan telah diterima dan diteruskan kepada instansi terkait untuk ditindaklanjuti.',
                 'status_sebelum' => 'diterima',
-                'status_sesudah' => 'diproses',
+                'status_sesudah' => 'verifikasi',
                 'diberi_oleh' => 'Admin Desa',
                 'created_at' => now()->subDays(2),
             ],
@@ -206,7 +207,7 @@ class PengaduanController extends Controller
                 'id' => 2,
                 'pengaduan_id' => 1,
                 'tanggapan' => 'Petugas sudah mengecek lokasi, lampu jalan akan diperbaiki besok pagi.',
-                'status_sebelum' => 'diproses',
+                'status_sebelum' => 'verifikasi',
                 'status_sesudah' => 'diproses',
                 'diberi_oleh' => 'Petugas Jalan Raya',
                 'created_at' => now()->subDays(1),
@@ -218,6 +219,7 @@ class PengaduanController extends Controller
             'tanggapans' => $tanggapans,
             'statuses' => [
                 'diterima' => 'Diterima',
+                'verifikasi' => 'Verifikasi',
                 'diproses' => 'Diproses',
                 'selesai' => 'Selesai',
                 'ditolak' => 'Ditolak',
@@ -233,7 +235,7 @@ class PengaduanController extends Controller
     {
         $validated = Validator::make($request->all(), [
             'tanggapan' => ['required', 'string', 'min:5'],
-            'status' => ['sometimes', 'string', 'in:diterima,diproses,selesai,ditolak'],
+            'status' => ['sometimes', 'string', 'in:diterima,verifikasi,diproses,selesai,ditolak'],
         ])->validate();
 
         return back()

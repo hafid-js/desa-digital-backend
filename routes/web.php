@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CuacaController;
 use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\Admin\PengaduanController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
@@ -68,3 +70,23 @@ Route::get('/admin/pengaduan/{kode}/lampiran', [
 Route::get('/admin/cuaca', [
     CuacaController::class, 'index',
 ])->name('admin.cuaca.index');
+
+Route::get('/admin/roles', [
+    RoleController::class, 'index',
+])->name('admin.roles.index');
+
+Route::get('/admin/roles/tambah', [
+    RoleController::class, 'tambah',
+])->name('admin.roles.tambah');
+
+Route::get('/admin/roles/{id}/ubah', [
+    RoleController::class, 'ubah',
+])->name('admin.roles.ubah');
+
+Route::get('/admin/users', [
+    UserController::class, 'index',
+])->name('admin.users.index');
+
+Route::get('/admin/users/{id}/ubah', [
+    UserController::class, 'ubah',
+])->name('admin.users.ubah');

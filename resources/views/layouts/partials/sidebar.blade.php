@@ -105,6 +105,23 @@
                           </a>
                       </li>
 
+                      <li class="nav-section-title">System</li>
+                      <!-- BEGIN NAVBAR ITEM -->
+                      <li class="nav-item">
+                          <a href="{{ route('admin.roles.index') }}" type="button" class="nav-link">
+                              <span class="nav-link-icon">
+                                  <i class="ti ti-shield-check icon-lg"></i></span>
+                              <span class="nav-link-title">Role</span>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="{{ route('admin.users.index') }}" type="button" class="nav-link">
+                              <span class="nav-link-icon">
+                                  <i class="ti ti-users icon-lg"></i></span>
+                              <span class="nav-link-title">Pengguna</span>
+                          </a>
+                      </li>
+
                   </ul>
 
               </nav>

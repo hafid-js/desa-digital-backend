@@ -139,9 +139,9 @@
                         </div>
                         <div class="card-footer">
                             <div class="btn-list justify-content-between">
-                                <a href="{{ route('admin.artikel.index') }}" class="btn btn-danger"><i
+                                <a href="{{ route('admin.artikel.index') }}" class="btn btn-danger btn-sm"><i
                                         class="ti ti-x me-2"></i> Batal</a>
-                                <button type="button" class="btn btn-primary"><i class="ti ti-check me-2"></i>
+                                <button type="button" class="btn btn-primary btn-sm"><i class="ti ti-check me-2"></i>
                                     Simpan</button>
                             </div>
                         </div>

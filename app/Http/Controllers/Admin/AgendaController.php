@@ -11,13 +11,8 @@ class AgendaController extends Controller
         return view('pages.admin.agenda.index');
     }
 
-    public function tambah()
+    public function detail()
     {
-        return view('pages.admin.agenda.tambah');
-    }
-
-    public function ubah()
-    {
-        return view('pages.admin.agenda.ubah');
+        return view('pages.admin.agenda.detail');
     }
 }

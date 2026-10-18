@@ -376,9 +376,9 @@
 
                 <div class="modal-footer">
                     <div class="row">
-                        <div class="col"><button type="button" data-bs-dismiss="modal" class="btn w-100"><i
+                        <div class="col"><button type="button" data-bs-dismiss="modal" class="btn w-100 btn-sm"><i
                                     class="ti ti-logout icon-lg me-1"></i> Tutup</button></div>
-                        <div class="col"><button type="button" class="btn btn-danger w-100"
+                        <div class="col"><button type="button" class="btn btn-danger btn-sm w-100"
                                 data-bs-dismiss="modal"><i class="ti ti-trash icon-lg me-1"></i> Hapus</button></div>
                     </div>
                 </div>

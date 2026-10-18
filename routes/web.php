@@ -25,10 +25,6 @@ Route::get('/admin/agenda', [
     AgendaController::class, 'index',
 ])->name('admin.agenda.index');
 
-Route::get('/admin/agenda/tambah', [
-    AgendaController::class, 'tambah',
-])->name('admin.agenda.tambah');
-
-Route::get('/admin/agenda/ubah', [
-    AgendaController::class, 'ubah',
-])->name('admin.agenda.ubah');
+Route::get('/admin/agenda/detail', [
+    AgendaController::class, 'detail',
+])->name('admin.agenda.detail');

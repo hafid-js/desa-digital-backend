@@ -104,7 +104,7 @@
 
                                         <td>
                                             <div class="d-flex flex-wrap gap-1">
-                                                <a href="{{ route('admin.agenda.ubah') }}" class="btn btn-warning btn-sm"><i class="ti ti-edit"></i></a>
+                                                <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalTambahAgenda"><i class="ti ti-edit"></i></a>
                                                 <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                                     data-bs-target="#modalHapusKategori"><i class="ti ti-trash"></i></a>
                                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modalDetailAgenda"

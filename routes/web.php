@@ -68,7 +68,3 @@ Route::get('/admin/pengaduan/{kode}/lampiran', [
 Route::get('/admin/cuaca', [
     CuacaController::class, 'index',
 ])->name('admin.cuaca.index');
-
-Route::get('/admin/cuaca/tambah', [
-    CuacaController::class, 'tambah',
-])->name('admin.cuaca.tambah');

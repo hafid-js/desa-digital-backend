@@ -34,6 +34,13 @@
   margin: 0;
 }
 
+.form-control-sm, .form-select-sm {
+    height: 31px !important;
+    min-height: 31px !important;
+    padding-top: 0.15rem !important;
+    padding-bottom: 0.15rem !important;
+}
+
 
 
 .crop-dialog {

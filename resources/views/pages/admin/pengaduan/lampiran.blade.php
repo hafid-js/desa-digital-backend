@@ -25,7 +25,7 @@
                                 <div class="col-auto">
                                     <h5 class="card-title m-0">Lampiran: {{ $pengaduan->kode_laporan }}</h5>
                                 </div>
-                                <div class="col-auto text-secondary">
+                                <div class="col-auto">
                                     <small>{{ $pengaduan->lampiran->count() }} file</small>
                                 </div>
                             </div>
@@ -38,19 +38,19 @@
                                                 @switch($item->tipe)
                                                     @case('foto')
                                                         <i class="ti ti-image text-primary fs-1 mb-2"></i>
-                                                        <span class="badge">Foto</span>
+                                                        <span class="badge bg-primary text-primary-fg">Foto</span>
                                                     @break
                                                     @case('pdf')
                                                         <i class="ti ti-file-type-pdf text-danger fs-1 mb-2"></i>
-                                                        <span class="badge bg-danger">PDF</span>
+                                                        <span class="badge bg-danger text-danger-fg">PDF</span>
                                                     @break
                                                     @case('video')
                                                         <i class="ti ti-file-video text-info fs-1 mb-2"></i>
-                                                        <span class="badge bg-info">Video</span>
+                                                        <span class="badge bg-info text-info-fg">Video</span>
                                                     @break
                                                     @default
                                                         <i class="ti ti-file text-secondary fs-1 mb-2"></i>
-                                                        <span class="badge bg-secondary">File</span>
+                                                        <span class="badge bg-secondary text-secondary-fg">File</span>
                                                 @endswitch
 
                                                 <h6 class="card-title mt-2">{{ $item->nama_asli ?? $item->path }}</h6>

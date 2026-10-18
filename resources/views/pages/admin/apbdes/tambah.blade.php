@@ -15,6 +15,7 @@
             <div class="row">
                 <div class="col-12 col-xl-8 mb-2">
                     <div class="card">
+                                    <div class="card-status-top bg-primary"></div>
                         <div class="card-header">
                             <a href="{{ route('admin.apbdes.index') }}" class="btn btn-primary btn-sm">
                                 <i class="ti ti-circle-chevron-left icon-lg me-2"> </i>

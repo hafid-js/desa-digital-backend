@@ -15,6 +15,7 @@
             <div class="row">
                 <div class="col-xs-12 col-md-3 mb-2">
                     <div class="card mb-2">
+                                    <div class="card-status-top bg-primary"></div>
                         <div class="card-body p-0">
                             <div class="list-group list-group-flush">
                                 <div class="list-group-item">
@@ -25,6 +26,7 @@
                         </div>
                     </div>
                     <div class="card">
+                                    <div class="card-status-top bg-primary"></div>
                         <div class="card-header">
                             <h2 class="card-title">Kategori Artikel</h2>
                         </div>
@@ -74,6 +76,7 @@
 
                 <div class="col-md-9 col-sm-12">
                     <div class="card">
+                                    <div class="card-status-top bg-primary"></div>
                         <div class="card-body">
 
                             <div class="row g-2">
@@ -287,7 +290,7 @@
                                             <li class="page-item disabled">
                                                 <a class="page-link" href="#" tabindex="-1" aria-disabled="true"
                                                     aria-label="Previous page">
-                                                    
+
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -316,7 +319,7 @@
 
                                             <li class="page-item">
                                                 <a class="page-link" href="#" aria-label="Next page">
-                                                    
+
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -327,7 +330,7 @@
                                             </li>
                                         </ul>
                                     </nav>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -337,7 +340,7 @@
         </div>
     </main>
 
-    
+
     <div class="modal modal-blur fade" id="modalHapusArtikel" tabindex="-1" role="dialog" aria-modal="true"
         aria-hidden="true">
         <div class="modal-dialog modal-md modal-dialog-centered">

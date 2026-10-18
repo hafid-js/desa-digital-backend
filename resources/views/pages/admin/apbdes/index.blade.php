@@ -15,6 +15,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+                                    <div class="card-status-top bg-primary"></div>
                         <div class="card-body">
                             <div class="row g-2">
                                 <div class="col-12 col-md-auto">
@@ -116,7 +117,7 @@
                                             entries</strong></p>
                                 </div>
                                 <div class="col-auto">
-                                    
+
                                     <nav aria-label="Pagination">
                                         <ul class="pagination m-0 ms-auto">
                                             <li class="page-item disabled">
@@ -150,7 +151,7 @@
                                             </li>
                                         </ul>
                                     </nav>
-                                    
+
                                 </div>
                             </div>
                         </div>

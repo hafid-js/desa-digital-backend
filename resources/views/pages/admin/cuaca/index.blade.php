@@ -18,10 +18,16 @@
                         <div class="card-body">
                             <div class="row g-2">
                                 <div class="col-12 col-md-auto">
-                                    <a href="{{ route('admin.cuaca.tambah') }}"
-                                        class="btn btn-primary btn-sm d-flex d-md-inline-flex align-items-center justify-content-center">
+                                    <button type="button" class="btn btn-primary btn-sm d-flex d-md-inline-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#modalTambahCuaca">
                                         <i class="ti ti-plus icon-lg me-1"></i>
                                         <span>Tambah Lokasi</span>
+                                    </button>
+                                </div>
+                                <div class="col-12 col-md-auto">
+                                    <a href="#"
+                                        class="btn btn-danger btn-sm d-flex d-md-inline-flex align-items-center justify-content-center">
+                                        <i class="ti ti-trash icon-lg me-1"></i>
+                                        <span>Hapus Data Terpilih</span>
                                     </a>
                                 </div>
                             </div>
@@ -56,10 +62,10 @@
                                             <input class="form-check-input m-0" type="checkbox">
                                         </th>
                                         <th class="text-center" style="width: 50px;">No.</th>
-                                        <th class="text-center" style="width: 200px;">AKSI</th>
+                                        <th class="text-center" style="width: 100px;">AKSI</th>
                                         <th class="text-center" style="min-width: 200px;">NAMA LOKASI</th>
-                                        <th class="text-center" style="width: 150px;">LATITUDE</th>
-                                        <th class="text-center" style="width: 150px;">LONGITUDE</th>
+                                        <th class="text-end" style="width: 150px;">LATITUDE</th>
+                                        <th class="text-end" style="width: 150px;">LONGITUDE</th>
                                         <th class="text-center" style="width: 100px;">AKTIF</th>
                                     </tr>
                                 </thead>
@@ -67,21 +73,19 @@
                                 <tbody>
                                     @forelse($cuacaList as $item)
                                         <tr>
-                                            <td>
+                                            <td class="text-center">
                                                 <input class="form-check-input m-0" type="checkbox">
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 <span class="text-secondary">{{ $loop->iteration }}</span>
                                             </td>
-                                            <td>
-                                                <div class="d-flex flex-wrap gap-1">
-                                                    <a href="#" class="btn btn-warning btn-sm"><i
-                                                            class="ti ti-edit"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i
-                                                            class="ti ti-trash"></i></a>
+                                            <td class="text-center">
+                                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                                    <a href="#" class="btn btn-warning btn-sm"><i class="ti ti-edit"></i></a>
+                                                    <a href="#" class="btn btn-danger btn-sm"><i class="ti ti-trash"></i></a>
                                                 </div>
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 {{ $item['nama'] ?? '-' }}
                                             </td>
                                             <td class="text-end">
@@ -91,7 +95,7 @@
                                                 {{ $item['longitude'] ?? '-' }}
                                             </td>
                                             <td class="text-center">
-                                                <span class="badge bg-{{ $item['is_aktif'] ? 'success' : 'secondary' }}">
+                                                <span class="badge bg-{{ $item['is_aktif'] ? 'green text-green-fg' : 'secondary text-secondary-fg' }}">
                                                     {{ $item['is_aktif'] ? 'Aktif' : 'Nonaktif' }}
                                                 </span>
                                             </td>
@@ -114,7 +118,6 @@
                                             entries</strong></p>
                                 </div>
                                 <div class="col-auto">
-                                    
                                     <nav aria-label="Pagination">
                                         <ul class="pagination m-0 ms-auto">
                                             <li class="page-item disabled">
@@ -148,7 +151,6 @@
                                             </li>
                                         </ul>
                                     </nav>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -157,4 +159,52 @@
             </div>
         </div>
     </main>
+
+    <!-- Modal Tambah Lokasi Cuaca -->
+    <div class="modal modal-blur fade" id="modalTambahCuaca" tabindex="-1" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTambahCuacaTitle">Tambah Lokasi Cuaca</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="space-y">
+                            <div>
+                                <label class="form-label" for="nama-cuaca">Nama Lokasi</label>
+                                <input type="text" placeholder="Nama lokasi cuaca" class="form-control"
+                                    id="nama-cuaca" name="nama">
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label" for="latitude-cuaca">Latitude</label>
+                                    <input type="number" step="any" placeholder="Contoh: -7.57971"
+                                        class="form-control" id="latitude-cuaca" name="latitude">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label" for="longitude-cuaca">Longitude</label>
+                                    <input type="number" step="any" placeholder="Contoh: 109.88204"
+                                        class="form-control" id="longitude-cuaca" name="longitude">
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <label class="form-label" for="status-cuaca">Status</label>
+                                <select class="form-select" id="status-cuaca" name="is_aktif">
+                                    <option value="1">Aktif</option>
+                                    <option value="0">Nonaktif</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal"><i
+                            class="ti ti-x me-1"></i> Batal</button>
+                    <button type="button" class="btn btn-primary w-100"><i
+                            class="ti ti-check me-1"></i> Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

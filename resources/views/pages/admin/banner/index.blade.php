@@ -15,6 +15,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+                                    <div class="card-status-top bg-primary"></div>
                         <div class="card-body">
                             <div class="row g-2">
                                 <div class="col-12 col-md-auto">
@@ -86,7 +87,7 @@
                                                 {{ $banner['keterangan'] ?? '-' }}
                                             </td>
                                             <td class="text-center">
-                                                <span class="badge bg-{{ $banner['status'] === 'Aktif' ? 'success' : 'secondary' }}">{{ $banner['status'] }}</span>
+                                                <span class="badge bg-{{ $banner['status'] === 'Aktif' ? 'green text-green-fg' : 'secondary text-secondary-fg' }}">{{ $banner['status'] }}</span>
                                             </td>
                                             <td class="text-center">
                                                 {{ $banner['urutan'] ?? '-' }}
@@ -118,7 +119,7 @@
                                             entries</strong></p>
                                 </div>
                                 <div class="col-auto">
-                                    
+
                                     <nav aria-label="Pagination">
                                         <ul class="pagination m-0 ms-auto">
                                             <li class="page-item disabled">
@@ -152,7 +153,7 @@
                                             </li>
                                         </ul>
                                     </nav>
-                                    
+
                                 </div>
                             </div>
                         </div>

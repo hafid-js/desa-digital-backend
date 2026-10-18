@@ -31,9 +31,4 @@ class CuacaController extends Controller
             ]),
         ]);
     }
-
-    public function tambah()
-    {
-        return view('pages.admin.cuaca.tambah');
-    }
 }

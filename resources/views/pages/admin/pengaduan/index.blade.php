@@ -73,19 +73,19 @@
                                                 <input class="form-check-input m-0" type="checkbox">
                                             </td>
                                             <td>
-                                                <span class="badge bg-secondary text-dark fw-semibold">{{ $p->kode_laporan }}</span>
+                                                <span class="badge badge-outline text-blue">{{ $p->kode_laporan }}</span>
                                             </td>
                                             <td>
                                                 {{ $p->nama_pelapor ?? '-' }}
                                             </td>
                                             <td>
-                                                <span class="badge bg-info text-dark">{{ $p->wilayah ?? '-' }}</span>
+                                                {{ $p->wilayah ?? '-' }}
                                             </td>
                                             <td style="white-space: normal; overflow-wrap: anywhere;">
                                                 {{ $p->rincian ?? '-' }}
                                             </td>
                                             <td class="text-center">
-                                                <span class="badge bg-{{ $p->status === 'selesai' ? 'success' : ($p->status === 'ditolak' ? 'danger' : ($p->status === 'diproses' ? 'warning' : 'info')) }}">{{ ucfirst($p->status) }}</span>
+                                                <span class="badge bg-{{ $p->status === 'selesai' ? 'green text-green-fg' : ($p->status === 'ditolak' ? 'red text-red-fg' : ($p->status === 'diproses' ? 'orange text-orange-fg' : 'blue text-blue-fg')) }}">{{ ucfirst($p->status) }}</span>
                                             </td>
                                             <td class="text-center">
                                                 {{ $p->created_at ? $p->created_at->format('d M Y H:i') : '-' }}

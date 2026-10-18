@@ -82,14 +82,16 @@
                                                 style="max-height: 150px;">
                                         @endif
                                         @if ($pengaduan->lampiran_pdf)
-                                            <a href="{{ asset('storage/' . $pengaduan->lampiran_pdf) }}"
-                                                class="btn btn-outline-primary btn-sm"><i
-                                                    class="ti ti-file-type-pdf me-1"></i> Unduh PDF</a>
+                                            <div class="border rounded p-1" style="width: 200px; height: 200px;">
+                                                <embed src="{{ asset('storage/' . $pengaduan->lampiran_pdf) }}"
+                                                    type="application/pdf" width="100%" height="100%">
+                                            </div>
                                         @endif
                                         @if ($pengaduan->lampiran_video)
-                                            <a href="{{ asset('storage/' . $pengaduan->lampiran_video) }}"
-                                                class="btn btn-outline-primary btn-sm"><i class="ti ti-file-video me-1"></i>
-                                                Unduh Video</a>
+                                            <video src="{{ asset('storage/' . $pengaduan->lampiran_video) }}"
+                                                controls class="border rounded" width="200" height="150">
+                                                Browser tidak mendukung pemutaran video.
+                                            </video>
                                         @endif
                                     </div>
                                 </div>

@@ -21,7 +21,8 @@
                                 Kembali ke halaman agenda </a>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form method="POST">
+                                @csrf
                                 <div class="space-y">
                                     <div>
                                         <label class="form-label" for="judul-agenda"> Judul Agenda</label>
@@ -44,15 +45,15 @@
                                         <div class="col-12 col-md-6">
                                             <label class="form-label" for="tanggal-mulai"> Tanggal Mulai</label>
 
-                                            <input type="date" class="form-control"
-                                                id="tanggal-mulai" name="tanggal_mulai">
+                                            <input type="date" class="form-control" id="tanggal-mulai"
+                                                name="tanggal_mulai">
                                         </div>
 
                                         <div class="col-12 col-md-6">
                                             <label class="form-label" for="tanggal-selesai"> Tanggal Selesai</label>
 
-                                            <input type="date" class="form-control"
-                                                id="tanggal-selesai" name="tanggal_selesai">
+                                            <input type="date" class="form-control" id="tanggal-selesai"
+                                                name="tanggal_selesai">
                                         </div>
                                     </div>
 
@@ -75,8 +76,7 @@
                                     <div>
                                         <label class="form-label" for="deskripsi-agenda"> Deskripsi</label>
 
-                                        <textarea id="deskripsi-agenda" name="deskripsi" class="form-control"
-                                            rows="4"></textarea>
+                                        <textarea id="deskripsi-agenda" name="deskripsi" class="form-control" rows="4"></textarea>
                                     </div>
 
                                     <div class="col-xl-6">
@@ -91,16 +91,18 @@
                                 </div>
                             </form>
                         </div>
+                        <div class="card-footer">
+                            <div class="btn-list justify-content-between">
+                                <a href="{{ route('admin.agenda.index') }}" class="btn btn-danger"><i
+                                        class="ti ti-x me-2"></i> Batal</a>
+                                <button type="button" class="btn btn-primary"><i class="ti ti-check me-2"></i>
+                                    Simpan</button>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-                <div class="col-12 mt-3">
-                    <div class="btn-list justify-content-between">
-                        <a href="{{ route('admin.agenda.index') }}"
-                            class="btn btn-danger"><i class="ti ti-x me-2"></i> Batal</a>
-                        <button type="button" class="btn btn-primary"><i
-                            class="ti ti-check me-2"></i> Simpan</button>
-                    </div>
-                </div>
+
             </div>
         </div>
     </main>

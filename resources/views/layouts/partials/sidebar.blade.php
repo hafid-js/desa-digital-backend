@@ -1,0 +1,145 @@
+      <!--  BEGIN SIDEBAR  -->
+      <!-- BEGIN SIDEBAR -->
+      <aside class="navbar navbar-vertical navbar-expand-lg">
+          <div class="container-fluid">
+              <!-- BEGIN NAVBAR TOGGLER -->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu"
+                  aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle sidebar navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <!-- END NAVBAR TOGGLER -->
+
+              <!-- BEGIN NAVBAR LOGO -->
+              <div class="navbar-brand navbar-brand-autodark">
+                  <a href="." aria-label="Tabler">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" width="32" height="32"
+                          aria-label="Tabler" class="navbar-brand-image">
+                          <path
+                              d="M64.6 16.2C63 9.9 58.1 5 51.8 3.4 40 1.5 28 1.5 16.2 3.4 9.9 5 5 9.9 3.4 16.2 1.5 28 1.5 40 3.4 51.8 5 58.1 9.9 63 16.2 64.6c11.8 1.9 23.8 1.9 35.6 0C58.1 63 63 58.1 64.6 51.8c1.9-11.8 1.9-23.8 0-35.6zM33.3 36.3c-2.8 4.4-6.6 8.2-11.1 11-1.5.9-3.3.9-4.8.1s-2.4-2.3-2.5-4c0-1.7.9-3.3 2.4-4.1 2.3-1.4 4.4-3.2 6.1-5.3-1.8-2.1-3.8-3.8-6.1-5.3-2.3-1.3-3-4.2-1.7-6.4s4.3-2.9 6.5-1.6c4.5 2.8 8.2 6.5 11.1 10.9 1 1.4 1 3.3.1 4.7zM49.2 46H37.8c-2.1 0-3.8-1-3.8-3s1.7-3 3.8-3h11.4c2.1 0 3.8 1 3.8 3s-1.7 3-3.8 3z"
+                              fill="#066fd1"
+                              style="fill: var(--tblr-navbar-logo-color, var(--tblr-primary, #066fd1))" />
+                      </svg>
+                  </a>
+              </div>
+              <!-- END NAVBAR LOGO -->
+
+              <!-- BEGIN SIDEBAR USER -->
+              <div class="navbar-footer">
+                  <ul class="navbar-nav">
+                      <li class="nav-item dropup">
+                          <a href="#" class="nav-link" data-bs-toggle="dropdown" aria-label="Open user menu">
+                              <span style="background-image: url({{ asset('assets/static/avatars/000m.jpg') }})"
+                                  class="avatar avatar-sm"></span>
+                              <div class="nav-link-title">
+                                  Paweł Kuna
+                                  <div class="small text-secondary">UI Designer</div>
+                              </div>
+                          </a>
+                          <div class="dropdown-menu">
+                              <a class="dropdown-item"
+                                  href="./profile.html"><!-- Download SVG icon from http://tabler.io/icons/icon/user -->
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                                      focusable="false" class="icon dropdown-item-icon">
+                                      <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                                      <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                  </svg>
+                                  Profile</a>
+                              <a class="dropdown-item"
+                                  href="#"><!-- Download SVG icon from http://tabler.io/icons/icon/chart-pie -->
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                                      focusable="false" class="icon dropdown-item-icon">
+                                      <path
+                                          d="M10 3.2a9 9 0 1 0 10.8 10.8a1 1 0 0 0 -1 -1h-6.8a2 2 0 0 1 -2 -2v-7a.9 .9 0 0 0 -1 -.8" />
+                                      <path d="M15 3.5a9 9 0 0 1 5.5 5.5h-4.5a1 1 0 0 1 -1 -1v-4.5" />
+                                  </svg>
+                                  Analytics</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="./settings.html">Settings &amp; Privacy</a>
+                              <a class="dropdown-item" href="#">Help</a>
+                              <a class="dropdown-item" href="./sign-in.html">Sign out</a>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              <!-- END SIDEBAR USER -->
+
+              <nav class="collapse navbar-collapse" id="sidebar-menu" aria-label="Sidebar">
+                  <!-- BEGIN NAVBAR MENU -->
+                  <ul class="navbar-nav pt-lg-3">
+                      <li class="nav-section-title">Overview</li>
+                      <!-- BEGIN NAVBAR ITEM -->
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                              data-bs-auto-close="false" role="button" aria-haspopup="true" aria-expanded="false">
+                              <span
+                                  class="nav-link-icon"><!-- Download SVG icon from http://tabler.io/icons/icon/home -->
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                                      focusable="false" class="icon">
+                                      <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                                      <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                                  </svg></span>
+
+                              <span class="nav-link-title">Dashboards</span>
+                          </a>
+
+
+
+                          <div class="dropdown-menu">
+                              <!-- BEGIN NAVBAR ITEM -->
+                              <a class="dropdown-item" href="./index.html"> Default </a>
+                              <!-- END NAVBAR ITEM -->
+                              <!-- BEGIN NAVBAR ITEM -->
+                              <a class="dropdown-item" href="./dashboard-crypto.html">
+                                  Crypto
+
+                                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+                              </a>
+                              <!-- END NAVBAR ITEM -->
+                              <!-- BEGIN NAVBAR ITEM -->
+                              <a class="dropdown-item" href="./dashboard-crm.html">
+                                  CRM
+
+                                  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+                              </a>
+                              <!-- END NAVBAR ITEM -->
+                          </div>
+                      </li>
+                      <!-- END NAVBAR ITEM -->
+                      <li class="nav-section-title">Components</li>
+                      <!-- BEGIN NAVBAR ITEM -->
+
+                      <li class="nav-item">
+                          <a href="{{ route('admin.artikel.index') }}" type="button" class="nav-link">
+                              <span class="nav-link-icon">
+                                  <i class="ti ti-photo-video icon-lg"></i></span>
+                              <span class="nav-link-title">Artikel</span>
+                          </a>
+                           <a href="{{ route('admin.kategori.index') }}" type="button" class="nav-link">
+                              <span class="nav-link-icon">
+                                  <i class="ti ti-list icon-lg"></i></span>
+                              <span class="nav-link-title">Kategori</span>
+                          </a>
+                          <a href="{{ route('admin.agenda.index') }}" type="button" class="nav-link">
+                              <span class="nav-link-icon">
+                                  <i class="ti ti-calendar-week icon-lg"></i></span>
+                              <span class="nav-link-title">Agenda</span>
+                          </a>
+                      </li>
+
+
+                  </ul>
+                  <!-- END NAVBAR MENU -->
+
+
+              </nav>
+          </div>
+      </aside>
+      <!-- END SIDEBAR -->
+      <!--  END SIDEBAR  -->

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-header d-print-none">
+    <div class="page-header d-print-none ">
         <div class="container-xl">
-            <div class="row g-2 align-items-center">
+            <div class="row g-2 ">
                 <div class="col">
                     <h1 class="page-title">Form Agenda</h1>
                 </div>
@@ -21,7 +21,8 @@
                                 Kembali ke halaman agenda </a>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form method="POST">
+                                @csrf
                                 <div class="row g-2">
                                     <div class="col-12 mb-3">
                                         <label class="form-label" for="judul-agenda"> Judul Agenda</label>
@@ -92,11 +93,16 @@
                                 </div>
                             </form>
                         </div>
+                        <div class="card-footer">
+                            <div class="btn-list justify-content-between">
+                                <a href="{{ route('admin.agenda.index') }}" class="btn btn-danger"><i
+                                        class="ti ti-x me-2"></i> Batal</a>
+                                <button type="button" class="btn btn-primary"><i class="ti ti-check me-2"></i>
+                                    Simpan</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="btn-list justify-content-between mt-3">
-                        <a href="#" class="btn btn-danger"><i class="ti ti-x me-2"></i> Batal</a>
-                        <button type="button" class="btn btn-primary"><i class="ti ti-check me-2"></i> Simpan</button>
-                    </div>
+
                 </div>
 
             </div>

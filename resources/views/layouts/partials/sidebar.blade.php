@@ -103,6 +103,11 @@
                                   <i class="ti ti-thermometer icon-lg"></i></span>
                               <span class="nav-link-title">Cuaca</span>
                           </a>
+                          <a href="{{ route('admin.lapak.index') }}" type="button" class="nav-link">
+                              <span class="nav-link-icon">
+                                  <i class="ti ti-shopping-bag icon-lg"></i></span>
+                              <span class="nav-link-title">Lapak Warga</span>
+                          </a>
                       </li>
 
                       <li class="nav-section-title">System</li>

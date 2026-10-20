@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ArtikelController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CuacaController;
 use App\Http\Controllers\Admin\KategoriController;
+use App\Http\Controllers\Admin\LapakWargaController;
 use App\Http\Controllers\Admin\PengaduanController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
@@ -78,3 +79,19 @@ Route::get('/admin/roles', [
 Route::get('/admin/users', [
     UserController::class, 'index',
 ])->name('admin.users.index');
+
+Route::get('/admin/lapak', [
+    LapakWargaController::class, 'index',
+])->name('admin.lapak.index');
+
+Route::get('/admin/lapak/kategori', [
+    LapakWargaController::class, 'kategori',
+])->name('admin.lapak.kategori');
+
+Route::get('/admin/lapak/laporan', [
+    LapakWargaController::class, 'laporan',
+])->name('admin.lapak.laporan');
+
+Route::get('/admin/lapak/{id}', [
+    LapakWargaController::class, 'detail',
+])->name('admin.lapak.detail');

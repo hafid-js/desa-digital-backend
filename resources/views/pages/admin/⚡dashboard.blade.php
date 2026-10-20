@@ -1,21 +1,51 @@
 <?php
 
+use App\Http\Controllers\Admin\ApbdesController;
 use App\Http\Controllers\Admin\LapakWargaController;
-use App\Models\Banner;
+use App\Http\Controllers\Admin\PengaduanController;
+use App\Http\Controllers\Admin\SuratController;
 use App\Models\CuacaLokasi;
-use App\Models\Pengaduan;
-use App\Models\User;
 use Livewire\Component;
 
 new class extends Component
 {
     public function render()
     {
+        $pengaduan = app(PengaduanController::class)->ringkasan();
+        $surat = app(SuratController::class)->ringkasan();
+        $apbdes = app(ApbdesController::class)->ringkasan();
         $lapak = app(LapakWargaController::class)->ringkasan();
 
         return $this->view([
+            'pengaduan' => $pengaduan,
+            'surat' => $surat,
+            'apbdes' => $apbdes,
             'lapak' => $lapak,
             'statistik' => [
+                [
+                    'label' => 'Pengaduan',
+                    'nilai' => $pengaduan['total'],
+                    'keterangan' => $pengaduan['perlu_tindak_lanjut'].' perlu ditindaklanjuti',
+                    'ikon' => 'ti-alert-circle',
+                    'warna' => 'red',
+                    'link' => route('admin.pengaduan.index'),
+                ],
+                [
+                    'label' => 'Permohonan Surat',
+                    'nilai' => $surat['total'],
+                    'keterangan' => $surat['perlu_proses'].' sedang diproses',
+                    'ikon' => 'ti-file-certificate',
+                    'warna' => 'orange',
+                    'link' => route('admin.surat.index'),
+                ],
+                [
+                    'label' => 'Realisasi APBDes',
+                    'nilai' => $apbdes['persentase'].'%',
+                    'keterangan' => 'tahun anggaran '.$apbdes['tahun_anggaran'],
+                    'ikon' => 'ti-coins',
+                    'warna' => 'green',
+                    'link' => route('admin.apbdes.index'),
+                ],
                 [
                     'label' => 'Produk Lapak',
                     'nilai' => $lapak['total_produk'],
@@ -29,32 +59,8 @@ new class extends Component
                     'nilai' => $lapak['laporan_baru'],
                     'keterangan' => 'laporan baru perlu ditinjau',
                     'ikon' => 'ti-flag',
-                    'warna' => 'red',
-                    'link' => route('admin.lapak.laporan'),
-                ],
-                [
-                    'label' => 'Pengaduan',
-                    'nilai' => Pengaduan::count(),
-                    'keterangan' => 'laporan warga masuk',
-                    'ikon' => 'ti-alert-circle',
-                    'warna' => 'orange',
-                    'link' => route('admin.pengaduan.index'),
-                ],
-                [
-                    'label' => 'Pengguna',
-                    'nilai' => User::count(),
-                    'keterangan' => 'warga terdaftar',
-                    'ikon' => 'ti-users',
                     'warna' => 'azure',
-                    'link' => route('admin.users.index'),
-                ],
-                [
-                    'label' => 'Banner',
-                    'nilai' => Banner::count(),
-                    'keterangan' => 'banner tayang di aplikasi',
-                    'ikon' => 'ti-carousel-horizontal',
-                    'warna' => 'green',
-                    'link' => route('admin.banner.index'),
+                    'link' => route('admin.lapak.laporan'),
                 ],
                 [
                     'label' => 'Lokasi Cuaca',
@@ -68,16 +74,28 @@ new class extends Component
             'cuacaLokasi' => CuacaLokasi::orderBy('nama')->get(),
             'modul' => [
                 [
+                    'label' => 'Pengaduan',
+                    'deskripsi' => 'Tindak lanjuti laporan warga',
+                    'ikon' => 'ti-alert-circle',
+                    'link' => route('admin.pengaduan.index'),
+                ],
+                [
+                    'label' => 'Permohonan Surat',
+                    'deskripsi' => 'Verifikasi dan proses surat warga',
+                    'ikon' => 'ti-file-certificate',
+                    'link' => route('admin.surat.index'),
+                ],
+                [
+                    'label' => 'APBDes',
+                    'deskripsi' => 'Rincian realisasi anggaran desa',
+                    'ikon' => 'ti-coins',
+                    'link' => route('admin.apbdes.index'),
+                ],
+                [
                     'label' => 'Artikel',
                     'deskripsi' => 'Kelola berita dan pengumuman desa',
                     'ikon' => 'ti-photo-video',
                     'link' => route('admin.artikel.index'),
-                ],
-                [
-                    'label' => 'Kategori Artikel',
-                    'deskripsi' => 'Kelompokkan artikel sesuai kategori',
-                    'ikon' => 'ti-list',
-                    'link' => route('admin.kategori.index'),
                 ],
                 [
                     'label' => 'Agenda',
@@ -86,22 +104,10 @@ new class extends Component
                     'link' => route('admin.agenda.index'),
                 ],
                 [
-                    'label' => 'APBDes',
-                    'deskripsi' => 'Data anggaran dan keuangan desa',
-                    'ikon' => 'ti-coins',
-                    'link' => route('admin.apbdes.index'),
-                ],
-                [
-                    'label' => 'Master Lapak',
-                    'deskripsi' => 'Kategori, kondisi, dan lokasi produk',
-                    'ikon' => 'ti-package',
-                    'link' => route('admin.lapak.kategori'),
-                ],
-                [
-                    'label' => 'Role & Pengguna',
-                    'deskripsi' => 'Atur akses petugas dan warga',
-                    'ikon' => 'ti-shield-check',
-                    'link' => route('admin.roles.index'),
+                    'label' => 'Lapak Warga',
+                    'deskripsi' => 'Produk dan laporan warga',
+                    'ikon' => 'ti-shopping-bag',
+                    'link' => route('admin.lapak.index'),
                 ],
             ],
         ]);
@@ -150,6 +156,213 @@ new class extends Component
                 <div class="card">
                     <div class="card-status-top bg-primary"></div>
                     <div class="card-header">
+                        <h3 class="card-title">Pengaduan Masyarakat</h3>
+                        <div class="card-actions">
+                            <a href="{{ route('admin.pengaduan.index') }}" class="btn btn-outline-primary btn-sm">
+                                <i class="ti ti-list icon-lg me-1"></i>
+                                Kelola semua pengaduan
+                            </a>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-vcenter card-table text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th class="w-1">KODE</th>
+                                    <th>PELAPOR</th>
+                                    <th>WILAYAH</th>
+                                    <th>RINCIAN</th>
+                                    <th class="w-1">STATUS</th>
+                                    <th class="w-1">TANGGAL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($pengaduan['terbaru'] as $p)
+                                    <tr>
+                                        <td>
+                                            <a href="{{ route('admin.pengaduan.detail', $p->kode_laporan) }}"
+                                                class="badge badge-outline text-blue">
+                                                {{ $p->kode_laporan }}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            {{ $p->nama_pelapor }}
+                                        </td>
+                                        <td>
+                                            {{ $p->wilayah }}
+                                        </td>
+                                        <td style="white-space: normal; overflow-wrap: anywhere;">
+                                            {{ $p->rincian }}
+                                        </td>
+                                        <td>
+                                            <span
+                                                class="badge badge-pill bg-{{ $p->status === 'selesai' ? 'green text-green-fg' : ($p->status === 'ditolak' ? 'red text-red-fg' : ($p->status === 'verifikasi' ? 'cyan text-cyan-fg' : ($p->status === 'diproses' ? 'orange text-orange-fg' : 'blue text-blue-fg'))) }}">
+                                                {{ ucfirst($p->status) }}
+                                            </span>
+                                        </td>
+                                        <td class="text-secondary">
+                                            {{ $p->created_at->format('d M Y') }}
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="6" class="text-center py-4">
+                                            <p class="text-secondary mb-0">Belum ada pengaduan masyarakat.</p>
+                                        </td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-4">
+                <div class="card">
+                    <div class="card-status-top bg-primary"></div>
+                    <div class="card-header">
+                        <h3 class="card-title">Akses Cepat</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-2">
+                            @foreach ($modul as $m)
+                                <div class="col-12 col-sm-6">
+                                    <a href="{{ $m['link'] }}"
+                                        class="card card-sm text-decoration-none h-100">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="ti {{ $m['ikon'] }} me-2 text-primary"></i>
+                                                <span class="fw-medium">{{ $m['label'] }}</span>
+                                            </div>
+                                            <div class="text-secondary small">{{ $m['deskripsi'] }}</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-cards mt-3">
+            <div class="col-12 col-lg-8">
+                <div class="card">
+                    <div class="card-status-top bg-primary"></div>
+                    <div class="card-header">
+                        <h3 class="card-title">Permohonan Surat</h3>
+                        <div class="card-actions">
+                            <a href="{{ route('admin.surat.index') }}" class="btn btn-outline-primary btn-sm">
+                                <i class="ti ti-list icon-lg me-1"></i>
+                                Kelola semua surat
+                            </a>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-vcenter card-table text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th class="w-1">KODE</th>
+                                    <th>JENIS SURAT</th>
+                                    <th>PEMOHON</th>
+                                    <th>KEPERLUAN</th>
+                                    <th class="w-1">STATUS</th>
+                                    <th class="w-1">DIAJUKAN</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($surat['terbaru'] as $s)
+                                    <tr>
+                                        <td>
+                                            <span class="badge badge-outline text-blue">{{ $s->kode_surat }}</span>
+                                        </td>
+                                        <td>
+                                            <div class="fw-medium">{{ $s->nama_surat }}</div>
+                                            @if ($s->mandiri)
+                                                <span class="badge bg-green-lt text-green-fg mt-1">Mandiri</span>
+                                            @else
+                                                <span class="badge bg-orange-lt text-orange-fg mt-1">Perlu Proses Desa</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            {{ $s->nama_pemohon }}
+                                        </td>
+                                        <td style="white-space: normal; overflow-wrap: anywhere;">
+                                            {{ $s->keperluan }}
+                                        </td>
+                                        <td>
+                                            <span
+                                                class="badge badge-pill bg-{{ $s->status === 'selesai' ? 'green text-green-fg' : ($s->status === 'ditolak' ? 'red text-red-fg' : ($s->status === 'diproses' ? 'orange text-orange-fg' : 'blue text-blue-fg')) }}">
+                                                {{ ucfirst($s->status) }}
+                                            </span>
+                                        </td>
+                                        <td class="text-secondary">
+                                            {{ $s->tanggal_diajukan->format('d M Y') }}
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="6" class="text-center py-4">
+                                            <p class="text-secondary mb-0">Belum ada permohonan surat.</p>
+                                        </td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-4">
+                <div class="card">
+                    <div class="card-status-top bg-primary"></div>
+                    <div class="card-header">
+                        <h3 class="card-title">Rincian APBDes</h3>
+                        <div class="card-actions">
+                            <a href="{{ route('admin.apbdes.index') }}" class="btn btn-outline-primary btn-sm">
+                                Kelola
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span class="text-secondary">Total realisasi</span>
+                                <span class="fw-medium">
+                                    Rp {{ number_format($apbdes['total_realisasi'], 0, ',', '.') }}
+                                </span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-secondary">Total anggaran</span>
+                                <span class="fw-medium">
+                                    Rp {{ number_format($apbdes['total_target'], 0, ',', '.') }}
+                                </span>
+                            </div>
+                        </div>
+
+                        @foreach ($apbdes['rincian'] as $r)
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="text-truncate me-2">{{ $r['judul'] }}</span>
+                                    <span class="fw-medium">{{ number_format($r['persentase'], 1) }}%</span>
+                                </div>
+                                <div class="progress progress-sm">
+                                    <div class="progress-bar" style="width: {{ $r['persentase'] }}%"
+                                        role="progressbar" aria-valuenow="{{ $r['persentase'] }}"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-cards mt-3">
+            <div class="col-12 col-lg-8">
+                <div class="card">
+                    <div class="card-status-top bg-primary"></div>
+                    <div class="card-header">
                         <h3 class="card-title">Produk Lapak Terbaru</h3>
                         <div class="card-actions">
                             <a href="{{ route('admin.lapak.index') }}" class="btn btn-outline-primary btn-sm">
@@ -165,7 +378,7 @@ new class extends Component
                                     <th>PRODUK</th>
                                     <th>KATEGORI</th>
                                     <th>HARGA</th>
-                                    <th>STATUS</th>
+                                    <th class="w-1">STATUS</th>
                                     <th class="w-1">DILIHAT</th>
                                 </tr>
                             </thead>
@@ -217,31 +430,6 @@ new class extends Component
 
             <div class="col-12 col-lg-4">
                 <div class="card">
-                    <div class="card-status-top bg-primary"></div>
-                    <div class="card-header">
-                        <h3 class="card-title">Akses Cepat</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="row g-2">
-                            @foreach ($modul as $m)
-                                <div class="col-12 col-sm-6">
-                                    <a href="{{ $m['link'] }}"
-                                        class="card card-sm text-decoration-none h-100">
-                                        <div class="card-body">
-                                            <div class="d-flex align-items-center mb-2">
-                                                <i class="ti {{ $m['ikon'] }} me-2 text-primary"></i>
-                                                <span class="fw-medium">{{ $m['label'] }}</span>
-                                            </div>
-                                            <div class="text-secondary small">{{ $m['deskripsi'] }}</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card mt-3">
                     <div class="card-status-top bg-primary"></div>
                     <div class="card-header">
                         <h3 class="card-title">Lokasi Cuaca Terdaftar</h3>

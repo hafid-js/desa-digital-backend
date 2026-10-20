@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\Admin\LapakWargaController;
 use App\Http\Controllers\Admin\PengaduanController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\SuratController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -95,3 +96,7 @@ Route::get('/admin/lapak/laporan', [
 Route::get('/admin/lapak/{id}', [
     LapakWargaController::class, 'detail',
 ])->name('admin.lapak.detail');
+
+Route::get('/admin/surat', [
+    SuratController::class, 'index',
+])->name('admin.surat.index');

@@ -23,7 +23,11 @@
         <div class="page-wrapper">
             @include('layouts.partials.header')
 
-            @yield('content')
+            @if (isset($slot))
+                {{ $slot }}
+            @else
+                @yield('content')
+            @endif
 
             @include('layouts.partials.footer')
         </div>

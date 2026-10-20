@@ -1,6 +1,15 @@
-@extends('layouts.app')
+<?php
 
-@section('content')
+use Livewire\Component;
+
+new class extends Component
+{
+    //
+};
+
+?>
+
+<div>
     <div class="page-header d-print-none">
         <div class="container-xl">
             <div class="row g-2 align-items-center">
@@ -12,4 +21,4 @@
             </div>
         </div>
     </div>
-@endsection
+</div>

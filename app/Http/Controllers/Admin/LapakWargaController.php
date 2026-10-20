@@ -79,6 +79,27 @@ class LapakWargaController extends Controller
     }
 
     /**
+     * Ringkasan data lapak warga untuk dashboard.
+     *
+     * @return array<string, mixed>
+     */
+    public function ringkasan(): array
+    {
+        $produk = $this->produkDummy();
+
+        return [
+            'total_produk' => $produk->count(),
+            'produk_aktif' => $produk->where('status', 'aktif')->count(),
+            'produk_nonaktif' => $produk->where('status', 'nonaktif')->count(),
+            'produk_terjual' => $produk->where('status', 'terjual')->count(),
+            'total_dilihat' => $produk->sum('dilihat'),
+            'total_penjual' => $produk->map(fn (\stdClass $p) => $p->penjual->id)->unique()->count(),
+            'laporan_baru' => $this->laporanDummy()->where('status', 'baru')->count(),
+            'produk_terbaru' => $produk->sortByDesc('dibuat_pada')->take(5)->values(),
+        ];
+    }
+
+    /**
      * Detail produk beserta informasi penjual dan riwayat moderasi.
      */
     public function detail(string $id): View

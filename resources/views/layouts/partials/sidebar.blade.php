@@ -68,6 +68,11 @@
 
                       <li class="nav-section-title">Main Menu</li>
                       <li class="nav-item">
+                          <a href="{{ route('admin.dashboard') }}" type="button" class="nav-link">
+                              <span class="nav-link-icon">
+                                  <i class="ti ti-dashboard icon-lg"></i></span>
+                              <span class="nav-link-title">Dashboard</span>
+                          </a>
                           <a href="{{ route('admin.artikel.index') }}" type="button" class="nav-link">
                               <span class="nav-link-icon">
                                   <i class="ti ti-photo-video icon-lg"></i></span>

@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\CuacaLokasi;
 use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Http;
 
 class CuacaController extends Controller
 {
-    public function index()
+    public function index(): JsonResponse
     {
         $apiKey = config('services.openweather.key');
 
@@ -52,7 +53,7 @@ class CuacaController extends Controller
         ]);
     }
 
-    public function show(string $id)
+    public function show(string $id): JsonResponse
     {
         $apiKey = config('services.openweather.key');
 

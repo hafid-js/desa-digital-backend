@@ -31,17 +31,14 @@
                             <div class="row g-3">
                                 <div class="col-12 col-md-5">
                                     <img src="{{ asset($produk->foto[0]) }}" alt="{{ $produk->nama_produk }}"
-                                        class="w-100 rounded" style="aspect-ratio: 4 / 3; object-fit: cover;">
+                                        class="w-100 rounded img-ratio-4-3">
                                 </div>
                                 <div class="col-12 col-md-7">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
-                                        <span
-                                            class="badge badge-pill bg-{{ $produk->status === 'aktif' ? 'green text-green-fg' : ($produk->status === 'terjual' ? 'blue text-blue-fg' : 'orange text-orange-fg') }}">
-                                            {{ $statuses[$produk->status] ?? ucfirst($produk->status) }}
-                                        </span>
+                                        <x-ui.status-badge :status="$produk->status" />
                                         <span class="badge bg-blue-lt text-blue-fg">{{ $produk->kategori }}</span>
                                         <span class="badge bg-azure-lt text-azure-fg">{{ $produk->kondisi }}</span>
-                                        @if ($produk->penjual->status === 'diblokir')
+                                        @if ($produk->penjual->status === \App\Enums\StatusAkun::Diblokir)
                                             <span class="badge bg-red-lt text-red-fg">Penjual Diblokir</span>
                                         @endif
                                     </div>
@@ -78,7 +75,7 @@
                                     @foreach (array_slice($produk->foto, 1) as $foto)
                                         <div class="col-4 col-md-3">
                                             <img src="{{ asset($foto) }}" alt="Foto produk {{ $loop->iteration + 1 }}"
-                                                class="rounded w-100" style="aspect-ratio: 1 / 1; object-fit: cover;">
+                                                class="rounded w-100 img-ratio-1-1">
                                         </div>
                                     @endforeach
                                 </div>
@@ -93,7 +90,7 @@
                         <div class="card-status-top bg-primary"></div>
                         <div class="card-body">
                             <h3 class="card-title">Deskripsi Produk</h3>
-                            <p style="white-space: normal; overflow-wrap: anywhere;">{{ $produk->deskripsi }}</p>
+                            <p class="cell-wrap">{{ $produk->deskripsi }}</p>
                         </div>
                     </div>
 
@@ -205,15 +202,12 @@
                                                 <span class="badge badge-outline text-blue">{{ $l->kode_laporan }}</span>
                                             </td>
                                             <td>{{ $l->pelapor }}</td>
-                                            <td style="white-space: normal; overflow-wrap: anywhere;">
+                                            <td class="cell-wrap">
                                                 <div class="fw-medium">{{ $l->alasan }}</div>
                                                 <div class="text-secondary small">{{ $l->catatan }}</div>
                                             </td>
                                             <td>
-                                                <span
-                                                    class="badge badge-pill bg-{{ $l->status === 'selesai' ? 'green text-green-fg' : ($l->status === 'ditolak' ? 'red text-red-fg' : ($l->status === 'diproses' ? 'orange text-orange-fg' : 'blue text-blue-fg')) }}">
-                                                    {{ ucfirst($l->status) }}
-                                                </span>
+                                                <x-ui.status-badge :status="$l->status" />
                                             </td>
                                             <td class="text-secondary">
                                                 {{ $l->dibuat_pada->format('d M Y H:i') }}
@@ -251,7 +245,7 @@
                                     <label class="form-label fw-semibold" for="status-produk">Status Produk</label>
                                     <select class="form-select" id="status-produk" name="status">
                                         @foreach ($statuses as $key => $label)
-                                            <option value="{{ $key }}" {{ $produk->status == $key ? 'selected' : '' }}>
+                                            <option value="{{ $key }}" {{ $produk->status->value == $key ? 'selected' : '' }}>
                                                 {{ $label }}
                                             </option>
                                         @endforeach
@@ -307,10 +301,7 @@
                                 <div class="datagrid-item">
                                     <div class="datagrid-title">Status Akun</div>
                                     <div class="datagrid-content">
-                                        <span
-                                            class="badge badge-pill bg-{{ $produk->penjual->status === 'aktif' ? 'green text-green-fg' : 'red text-red-fg' }}">
-                                            {{ $produk->penjual->status === 'aktif' ? 'Aktif' : 'Diblokir' }}
-                                        </span>
+                                        <x-ui.status-badge :status="$produk->penjual->status" />
                                     </div>
                                 </div>
                             </div>
@@ -355,44 +346,6 @@
         </div>
     </main>
 
-    <div class="modal modal-blur fade" id="modalHapusProdukDetail" tabindex="-1" role="dialog" aria-modal="true"
-        aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title">Konfirmasi Penghapusan Data</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center py-4">
-                    <h3>Penghapusan data bersifat permanen dan tidak dapat dikembalikan</h3>
-                    <p class="text-warning mb-3">
-                        Apakah anda yakin ingin menghapus produk "{{ $produk->nama_produk }}"?
-                    </p>
-                    <div class="d-flex flex-column align-items-start gap-2">
-                        <input type="text" class="form-control" placeholder="Ketik HAPUS untuk melanjutkan">
-
-                        <span class="d-inline-flex align-items-center gap-2">
-                            <i class="ti ti-info-circle"></i>
-                            <p class="mb-0">Ketik "<strong>HAPUS</strong>" (case sensitive)</p>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <div class="row">
-                        <div class="col">
-                            <button type="button" data-bs-dismiss="modal" class="btn w-100 btn-sm">
-                                <i class="ti ti-logout icon-lg me-1"></i> Tutup
-                            </button>
-                        </div>
-                        <div class="col">
-                            <button type="button" data-bs-dismiss="modal" class="btn btn-danger btn-sm w-100">
-                                <i class="ti ti-trash icon-lg me-1"></i> Hapus
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-ui.confirm-modal id="modalHapusProdukDetail"
+        pesan="Apakah anda yakin ingin menghapus produk &quot;{{ $produk->nama_produk }}&quot;?" />
 @endsection

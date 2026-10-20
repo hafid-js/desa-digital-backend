@@ -175,7 +175,7 @@
                                                         class="ti ti-eye"></i></a>
                                             </div>
                                         </td>
-                                        <td style="white-space: normal; overflow-wrap: anywhere;">
+                                        <td class="cell-wrap">
                                             Sambut pilwana serentak: Bamus Sitapa lantik panitia pemilihan Wali
                                             Nagari
                                             periode 2022-2028
@@ -205,7 +205,7 @@
                                                         class="ti ti-eye"></i></a>
                                             </div>
                                         </td>
-                                        <td style="white-space: normal; overflow-wrap: anywhere;">
+                                        <td class="cell-wrap">
                                             Sambut pilwana serentak: Bamus Sitapa lantik panitia pemilihan Wali
                                             Nagari
                                             periode 2022-2028
@@ -235,7 +235,7 @@
                                                         class="ti ti-eye"></i></a>
                                             </div>
                                         </td>
-                                        <td style="white-space: normal; overflow-wrap: anywhere;">
+                                        <td class="cell-wrap">
                                             Sambut pilwana serentak: Bamus Sitapa lantik panitia pemilihan Wali
                                             Nagari
                                             periode 2022-2028
@@ -265,7 +265,7 @@
                                                         class="ti ti-eye"></i></a>
                                             </div>
                                         </td>
-                                        <td style="white-space: normal; overflow-wrap: anywhere;">
+                                        <td class="cell-wrap">
                                             Sambut pilwana serentak: Bamus Sitapa lantik panitia pemilihan Wali
                                             Nagari
                                             periode 2022-2028

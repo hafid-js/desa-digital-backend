@@ -19,8 +19,7 @@
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <div>
                                     <h5 class="card-title mb-1">{{ $pengaduan->kode_laporan }}</h5>
-                                    <span
-                                        class="badge badge-pill bg-{{ $pengaduan->status === 'selesai' ? 'green text-green-fg' : ($pengaduan->status === 'ditolak' ? 'red text-red-fg' : ($pengaduan->status === 'verifikasi' ? 'cyan text-cyan-fg' : ($pengaduan->status === 'diproses' ? 'orange text-orange-fg' : 'blue text-blue-fg'))) }}">{{ ucfirst($pengaduan->status) }}</span>
+                                    <x-ui.status-badge :status="$pengaduan->status" />
                                 </div>
                                 <a href="{{ route('admin.pengaduan.index') }}" class="btn btn-primary btn-sm"><i
                                         class="ti ti-arrow-left me-1"></i> Kembali</a>
@@ -79,7 +78,7 @@
                                     <label class="form-label fw-semibold small ">Tanggapan Terakhir</label>
                                     <div class="p-3 bg-success-lightest rounded border border-success">
                                         <p class="mb-1 ">{{ $pengaduan->tanggapan }}</p>
-                                        <small class="text-success">{{ ucfirst($pengaduan->status) }}</small>
+                                        <small class="text-success">{{ $pengaduan->status->label() }}</small>
                                     </div>
                                 </div>
                             @endif
@@ -111,10 +110,10 @@
                                 <div class="mb-3">
                                     <label class="form-label fw-semibold">Ubah Status</label>
                                     <select name="status" class="form-select">
-                                        @foreach ($statuses as $status)
-                                            <option value="{{ $status }}"
-                                                {{ $pengaduan->status == $status ? 'selected' : '' }}>
-                                                {{ ucfirst($status) }}
+                                        @foreach ($statuses as $value => $label)
+                                            <option value="{{ $value }}"
+                                                {{ $pengaduan->status->value == $value ? 'selected' : '' }}>
+                                                {{ $label }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -138,8 +137,7 @@
                                     <li class="step-item">
                                         <div class="card card-body">
                                             <div class="d-flex justify-content-between mb-2">
-                                                <span
-                                                    class="badge badge-pill bg-{{ $t->status_sebelum === 'selesai' ? 'green text-green-fg' : ($t->status_sebelum === 'ditolak' ? 'red text-red-fg' : ($t->status_sebelum === 'verifikasi' ? 'cyan text-cyan-fg' : ($t->status_sebelum === 'diproses' ? 'orange text-orange-fg' : 'blue text-blue-fg'))) }}">{{ ucfirst($t->status_sebelum) }}</span>
+                                                <x-ui.status-badge :status="$t->status_sebelum" />
                                                 <div class="text-secondary float-end">10 hrs ago</div>
 
                                             </div>

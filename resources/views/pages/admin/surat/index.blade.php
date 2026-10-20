@@ -1,24 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-header d-print-none">
-        <div class="container-xl">
-            <div class="row g-2 align-items-center">
-                <div class="col">
-                    <div class="page-pretitle">Layanan Administrasi</div>
-                    <h1 class="page-title">Permohonan Surat</h1>
-                </div>
-                <div class="col-auto ms-auto d-print-none">
-                    <div class="btn-list">
-                        <a href="{{ route('admin.dashboard') }}" class="btn btn-primary btn-sm">
+<x-ui.page-header pretitle="Layanan Administrasi" title="Permohonan Surat">
+        <a href="{{ route('admin.dashboard') }}" class="btn btn-primary btn-sm">
                             <i class="ti ti-circle-chevron-left icon-lg me-1"></i>
                             Kembali ke dashboard
                         </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </x-ui.page-header>
     <main id="content" class="page-body">
         <div class="container-xl">
             <div class="row">
@@ -26,19 +14,10 @@
                     <div class="card">
                         <div class="card-status-top bg-primary"></div>
                         <div class="card-body">
-                            <form action="{{ route('admin.surat.index') }}" method="GET"
-                                class="row g-2 align-items-end">
-                                <div class="col-12 col-md-4">
-                                    <label class="form-label" for="cari-surat">Cari Surat</label>
-                                    <div class="input-icon">
-                                        <input type="text" name="search" id="cari-surat" value="{{ $search }}"
-                                            placeholder="Kode surat, pemohon, atau wilayah..."
-                                            class="form-control form-control-sm">
-                                        <span class="input-icon-addon">
-                                            <i class="ti ti-search"></i>
-                                        </span>
-                                    </div>
-                                </div>
+                            <x-tables.filter-bar :action="route('admin.surat.index')" :search="$search"
+                                label="Cari Surat" placeholder="Kode surat, pemohon, atau wilayah..."
+                                :bersihkan-url="route('admin.surat.index')"
+                                :bersihkan="(bool) ($search || $selectedStatus || $selectedJenis)">
                                 <div class="col-6 col-md-3">
                                     <label class="form-label" for="filter-status-surat">Status</label>
                                     <select class="form-select form-select-sm" id="filter-status-surat" name="status">
@@ -61,20 +40,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-12 col-md-auto">
-                                    <div class="btn-list">
-                                        <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="ti ti-filter icon-lg me-1"></i>
-                                            Terapkan
-                                        </button>
-                                        @if ($search || $selectedStatus || $selectedJenis)
-                                            <a href="{{ route('admin.surat.index') }}" class="btn btn-sm">
-                                                Bersihkan
-                                            </a>
-                                        @endif
-                                    </div>
-                                </div>
-                            </form>
+                            </x-tables.filter-bar>
                         </div>
 
                         <div class="table-responsive">
@@ -119,14 +85,11 @@
                                             <td>
                                                 {{ $s->wilayah }}
                                             </td>
-                                            <td style="white-space: normal; overflow-wrap: anywhere;">
+                                            <td class="cell-wrap">
                                                 {{ $s->keperluan }}
                                             </td>
                                             <td class="text-center">
-                                                <span
-                                                    class="badge badge-pill bg-{{ $s->status === 'selesai' ? 'green text-green-fg' : ($s->status === 'ditolak' ? 'red text-red-fg' : ($s->status === 'diproses' ? 'orange text-orange-fg' : 'blue text-blue-fg')) }}">
-                                                    {{ $statuses[$s->status] ?? ucfirst($s->status) }}
-                                                </span>
+                                                <x-ui.status-badge :status="$s->status" />
                                             </td>
                                             <td class="text-center">
                                                 {{ $s->tanggal_diajukan->format('d M Y') }}
@@ -149,11 +112,7 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <tr>
-                                            <td colspan="9" class="text-center py-4">
-                                                <p class="text-secondary mb-0">Belum ada permohonan surat yang sesuai filter.</p>
-                                            </td>
-                                        </tr>
+                                        <x-ui.empty-state :colspan="9" pesan="Belum ada permohonan surat yang sesuai filter." />
                                     @endforelse
                                 </tbody>
                             </table>
@@ -168,50 +127,7 @@
                                     </p>
                                 </div>
                                 <div class="col-auto">
-                                    @if ($surat->lastPage > 1)
-                                        <nav aria-label="Pagination">
-                                            <ul class="pagination m-0 ms-auto">
-                                                @if ($surat->currentPage > 1)
-                                                    <li class="page-item">
-                                                        <a class="page-link"
-                                                            href="?page={{ $surat->currentPage - 1 }}{{ $queryString ? '&' . $queryString : '' }}"
-                                                            aria-label="Previous page">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                height="24" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                                stroke-linejoin="round" aria-hidden="true" focusable="false"
-                                                                class="icon">
-                                                                <path d="M15 6l-6 6l6 6"></path>
-                                                            </svg>
-                                                        </a>
-                                                    </li>
-                                                @endif
-                                                @for ($i = 1; $i <= $surat->lastPage; $i++)
-                                                    <li class="page-item {{ $i == $surat->currentPage ? 'active' : '' }}">
-                                                        <a class="page-link"
-                                                            href="?page={{ $i }}{{ $queryString ? '&' . $queryString : '' }}">
-                                                            {{ $i }}
-                                                        </a>
-                                                    </li>
-                                                @endfor
-                                                @if ($surat->currentPage < $surat->lastPage)
-                                                    <li class="page-item">
-                                                        <a class="page-link"
-                                                            href="?page={{ $surat->currentPage + 1 }}{{ $queryString ? '&' . $queryString : '' }}"
-                                                            aria-label="Next page">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                height="24" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                                stroke-linejoin="round" aria-hidden="true" focusable="false"
-                                                                class="icon">
-                                                                <path d="M9 6l6 6l-6 6"></path>
-                                                            </svg>
-                                                        </a>
-                                                    </li>
-                                                @endif
-                                            </ul>
-                                        </nav>
-                                    @endif
+                                    <x-tables.pagination :paginator="$surat" :query-string="$queryString" />
                                 </div>
                             </div>
                         </div>

@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <script src="https://preview.tabler.io/dist/libs/hugerte/hugerte.min.js"></script>
-
     <div class="page-header d-print-none">
         <div class="container-xl">
             <div class="row g-2 align-items-center">

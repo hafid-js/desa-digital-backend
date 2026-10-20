@@ -21,8 +21,6 @@
         @include('layouts.partials.navbar')
 
         <div class="page-wrapper">
-            @include('layouts.partials.header')
-
             @if (isset($slot))
                 {{ $slot }}
             @else
@@ -33,7 +31,6 @@
         </div>
     </div>
 
-    @include('layouts.partials.modals')
     @include('layouts.partials.settings')
 
     @livewireScripts

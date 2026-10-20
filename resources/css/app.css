@@ -128,3 +128,23 @@
         height: 45vh;
     }
 }
+
+/* Helper tampilan yang sebelumnya tersebar sebagai inline style. */
+.img-cover {
+    object-fit: cover;
+}
+
+.img-ratio-4-3 {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.img-ratio-1-1 {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.cell-wrap {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}

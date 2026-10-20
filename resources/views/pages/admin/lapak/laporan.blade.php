@@ -1,24 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-header d-print-none">
-        <div class="container-xl">
-            <div class="row g-2 align-items-center">
-                <div class="col">
-                    <div class="page-pretitle">Lapak Warga</div>
-                    <h1 class="page-title">Laporan Produk</h1>
-                </div>
-                <div class="col-auto ms-auto d-print-none">
-                    <div class="btn-list">
-                        <a href="{{ route('admin.lapak.index') }}" class="btn btn-primary btn-sm">
+<x-ui.page-header pretitle="Lapak Warga" title="Laporan Produk">
+        <a href="{{ route('admin.dashboard') }}" class="btn btn-primary btn-sm">
                             <i class="ti ti-circle-chevron-left icon-lg me-1"></i>
-                            Kembali ke daftar produk
+                            Kembali ke dashboard
                         </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </x-ui.page-header>
     <main id="content" class="page-body">
         <div class="container-xl">
             <div class="row">
@@ -101,15 +89,12 @@
                                             <td>
                                                 {{ $l->pelapor }}
                                             </td>
-                                            <td style="white-space: normal; overflow-wrap: anywhere;">
+                                            <td class="cell-wrap">
                                                 <div class="fw-medium">{{ $l->alasan }}</div>
                                                 <div class="text-secondary small">{{ $l->catatan }}</div>
                                             </td>
                                             <td class="text-center">
-                                                <span
-                                                    class="badge badge-pill bg-{{ $l->status === 'selesai' ? 'green text-green-fg' : ($l->status === 'ditolak' ? 'red text-red-fg' : ($l->status === 'diproses' ? 'orange text-orange-fg' : 'blue text-blue-fg')) }}">
-                                                    {{ $statuses[$l->status] ?? ucfirst($l->status) }}
-                                                </span>
+                                                <x-ui.status-badge :status="$l->status" />
                                             </td>
                                             <td class="text-center">
                                                 {{ $l->dibuat_pada->format('d M Y H:i') }}
@@ -132,11 +117,7 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <tr>
-                                            <td colspan="8" class="text-center py-4">
-                                                <p class="text-secondary mb-0">Belum ada laporan produk.</p>
-                                            </td>
-                                        </tr>
+                                        <x-ui.empty-state :colspan="8" pesan="Belum ada laporan produk." />
                                     @endforelse
                                 </tbody>
                             </table>
@@ -151,50 +132,7 @@
                                     </p>
                                 </div>
                                 <div class="col-auto">
-                                    @if ($laporan->lastPage > 1)
-                                        <nav aria-label="Pagination">
-                                            <ul class="pagination m-0 ms-auto">
-                                                @if ($laporan->currentPage > 1)
-                                                    <li class="page-item">
-                                                        <a class="page-link"
-                                                            href="?page={{ $laporan->currentPage - 1 }}{{ $queryString ? '&' . $queryString : '' }}"
-                                                            aria-label="Previous page">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                height="24" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                                stroke-linejoin="round" aria-hidden="true" focusable="false"
-                                                                class="icon">
-                                                                <path d="M15 6l-6 6l6 6"></path>
-                                                            </svg>
-                                                        </a>
-                                                    </li>
-                                                @endif
-                                                @for ($i = 1; $i <= $laporan->lastPage; $i++)
-                                                    <li class="page-item {{ $i == $laporan->currentPage ? 'active' : '' }}">
-                                                        <a class="page-link"
-                                                            href="?page={{ $i }}{{ $queryString ? '&' . $queryString : '' }}">
-                                                            {{ $i }}
-                                                        </a>
-                                                    </li>
-                                                @endfor
-                                                @if ($laporan->currentPage < $laporan->lastPage)
-                                                    <li class="page-item">
-                                                        <a class="page-link"
-                                                            href="?page={{ $laporan->currentPage + 1 }}{{ $queryString ? '&' . $queryString : '' }}"
-                                                            aria-label="Next page">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                height="24" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                                stroke-linejoin="round" aria-hidden="true" focusable="false"
-                                                                class="icon">
-                                                                <path d="M9 6l6 6l-6 6"></path>
-                                                            </svg>
-                                                        </a>
-                                                    </li>
-                                                @endif
-                                            </ul>
-                                        </nav>
-                                    @endif
+                                    <x-tables.pagination :paginator="$laporan" :query-string="$queryString" />
                                 </div>
                             </div>
                         </div>

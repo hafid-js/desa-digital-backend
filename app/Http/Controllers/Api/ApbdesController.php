@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Apbdes;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class ApbdesController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request): JsonResponse
     {
         $validated = Validator::make($request->all(), [
             'tahun' => ['sometimes', 'integer', 'min:2000', 'max:2100'],
@@ -54,7 +55,7 @@ class ApbdesController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         $validated = Validator::make($request->all(), [
             'judul' => ['required', 'string', 'max:255'],
@@ -81,7 +82,7 @@ class ApbdesController extends Controller
         ], 201);
     }
 
-    public function update(Request $request, Apbdes $apbdes)
+    public function update(Request $request, Apbdes $apbdes): JsonResponse
     {
         $validated = Validator::make($request->all(), [
             'judul' => ['sometimes', 'string', 'max:255'],

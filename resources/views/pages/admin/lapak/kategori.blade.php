@@ -1,24 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-header d-print-none">
-        <div class="container-xl">
-            <div class="row g-2 align-items-center">
-                <div class="col">
-                    <div class="page-pretitle">Lapak Warga</div>
-                    <h1 class="page-title">Master Lapak</h1>
-                </div>
-                <div class="col-auto ms-auto d-print-none">
-                    <div class="btn-list">
-                        <a href="{{ route('admin.lapak.index') }}" class="btn btn-primary btn-sm">
+<x-ui.page-header pretitle="Lapak Warga" title="Master Lapak">
+        <a href="{{ route('admin.lapak.index') }}" class="btn btn-primary btn-sm">
                             <i class="ti ti-circle-chevron-left icon-lg me-1"></i>
                             Kembali ke daftar produk
                         </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </x-ui.page-header>
     <main id="content" class="page-body">
         <div class="container-xl">
             <div class="card">
@@ -248,218 +236,67 @@
         </div>
     </main>
 
-    <div class="modal modal-blur fade" id="modalTambahKategori" tabindex="-1" role="dialog" aria-modal="true"
-        aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Tambah Kategori Produk</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
+    <x-ui.form-modal id="modalTambahKategori" title="Tambah Kategori Produk">
                     <form method="POST">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" for="nama-kategori-baru"> Nama Kategori </label>
-                            <input type="text" class="form-control" id="nama-kategori-baru"
-                                placeholder="Contoh: Electronics & Gadget">
-                        </div>
-
-                        <div class="form-hint">
-                            Kategori ini akan langsung tampil pada pilihan kategori di aplikasi warga.
+                            <input type="text" class="form-control" id="nama-kategori-baru" placeholder="Contoh: Electronics & Gadget">
                         </div>
                     </form>
-                </div>
+                </x-ui.form-modal>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary ms-auto" data-bs-dismiss="modal">Simpan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-blur fade" id="modalUbahKategori" tabindex="-1" role="dialog" aria-modal="true"
-        aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Ubah Kategori Produk</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
+    <x-ui.form-modal id="modalUbahKategori" title="Ubah Kategori Produk">
                     <form method="POST">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" for="nama-kategori"> Nama Kategori </label>
-                            <input type="text" class="form-control" id="nama-kategori" value="Fashion & Pakaian">
+                            <input type="text" class="form-control" id="nama-kategori" placeholder="Contoh: Electronics & Gadget" value="Fashion &amp; Pakaian">
                         </div>
                     </form>
-                </div>
+                </x-ui.form-modal>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary ms-auto" data-bs-dismiss="modal">Simpan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-blur fade" id="modalTambahKondisi" tabindex="-1" role="dialog" aria-modal="true"
-        aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Tambah Kondisi Produk</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
+    <x-ui.form-modal id="modalTambahKondisi" title="Tambah Kondisi Produk">
                     <form method="POST">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" for="nama-kondisi-baru"> Nama Kondisi </label>
-                            <input type="text" class="form-control" id="nama-kondisi-baru"
-                                placeholder="Contoh: Bekas - Rusak Ringan">
+                            <input type="text" class="form-control" id="nama-kondisi-baru" placeholder="Contoh: Bekas - Rusak Ringan">
                         </div>
                     </form>
-                </div>
+                </x-ui.form-modal>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary ms-auto" data-bs-dismiss="modal">Simpan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-blur fade" id="modalUbahKondisi" tabindex="-1" role="dialog" aria-modal="true"
-        aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Ubah Kondisi Produk</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
+    <x-ui.form-modal id="modalUbahKondisi" title="Ubah Kondisi Produk">
                     <form method="POST">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" for="nama-kondisi"> Nama Kondisi </label>
-                            <input type="text" class="form-control" id="nama-kondisi" value="Bekas - Seperti Baru">
+                            <input type="text" class="form-control" id="nama-kondisi" placeholder="Contoh: Bekas - Rusak Ringan" value="Bekas - Seperti Baru">
                         </div>
                     </form>
-                </div>
+                </x-ui.form-modal>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary ms-auto" data-bs-dismiss="modal">Simpan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-blur fade" id="modalTambahLokasi" tabindex="-1" role="dialog" aria-modal="true"
-        aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Tambah Lokasi</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
+    <x-ui.form-modal id="modalTambahLokasi" title="Tambah Lokasi">
                     <form method="POST">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" for="nama-lokasi-baru"> Nama Dusun </label>
-                            <input type="text" class="form-control" id="nama-lokasi-baru"
-                                placeholder="Contoh: Dusun Sukamaju">
+                            <input type="text" class="form-control" id="nama-lokasi-baru" placeholder="Contoh: Dusun Sukamaju">
                         </div>
                     </form>
-                </div>
+                </x-ui.form-modal>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary ms-auto" data-bs-dismiss="modal">Simpan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-blur fade" id="modalUbahLokasi" tabindex="-1" role="dialog" aria-modal="true"
-        aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Ubah Lokasi</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
+    <x-ui.form-modal id="modalUbahLokasi" title="Ubah Lokasi">
                     <form method="POST">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" for="nama-lokasi"> Nama Dusun </label>
-                            <input type="text" class="form-control" id="nama-lokasi" value="Dusun Krajan">
+                            <input type="text" class="form-control" id="nama-lokasi" placeholder="Contoh: Dusun Sukamaju" value="Dusun Krajan">
                         </div>
                     </form>
-                </div>
+                </x-ui.form-modal>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary ms-auto" data-bs-dismiss="modal">Simpan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-blur fade" id="modalHapusKategori" tabindex="-1" role="dialog" aria-modal="true"
-        aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title">Konfirmasi Penghapusan Data</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center py-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" aria-hidden="true" focusable="false"
-                        class="icon mb-2 text-danger icon-lg">
-                        <path d="M12 9v4"></path>
-                        <path
-                            d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0">
-                        </path>
-                        <path d="M12 16h.01"></path>
-                    </svg>
-                    <div class="card-body">
-                        <h1>Perhatian</h1>
-                    </div>
-                    <h3>Penghapusan data bersifat permanen dan tidak dapat dikembalikan</h3>
-                    <p class="text-warning mb-3">
-                        Produk pada kategori ini perlu dipindahkan terlebih dahulu.
-                    </p>
-                </div>
-
-                <div class="modal-footer">
-                    <div class="row">
-                        <div class="col">
-                            <button type="button" data-bs-dismiss="modal" class="btn w-100 btn-sm">
-                                <i class="ti ti-logout icon-lg me-1"></i> Tutup
-                            </button>
-                        </div>
-                        <div class="col">
-                            <button type="button" data-bs-dismiss="modal" class="btn btn-danger btn-sm w-100">
-                                <i class="ti ti-trash icon-lg me-1"></i> Hapus
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-ui.confirm-modal id="modalHapusKategori"
+        pesan="Produk pada kategori ini perlu dipindahkan terlebih dahulu."
+        :ketik-hapus="false" />
 @endsection

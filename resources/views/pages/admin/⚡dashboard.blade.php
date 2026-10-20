@@ -1,62 +1,53 @@
 <?php
 
-use App\Http\Controllers\Admin\ApbdesController;
-use App\Http\Controllers\Admin\LapakWargaController;
-use App\Http\Controllers\Admin\PengaduanController;
-use App\Http\Controllers\Admin\SuratController;
 use App\Models\CuacaLokasi;
+use App\Queries\DashboardQuery;
 use Livewire\Component;
 
 new class extends Component
 {
     public function render()
     {
-        $pengaduan = app(PengaduanController::class)->ringkasan();
-        $surat = app(SuratController::class)->ringkasan();
-        $apbdes = app(ApbdesController::class)->ringkasan();
-        $lapak = app(LapakWargaController::class)->ringkasan();
+        $summary = (new DashboardQuery())->summary();
 
         return $this->view([
-            'pengaduan' => $pengaduan,
-            'surat' => $surat,
-            'apbdes' => $apbdes,
-            'lapak' => $lapak,
+            'summary' => $summary,
             'statistik' => [
                 [
                     'label' => 'Pengaduan',
-                    'nilai' => $pengaduan['total'],
-                    'keterangan' => $pengaduan['perlu_tindak_lanjut'].' perlu ditindaklanjuti',
+                    'nilai' => $summary->pengaduanTotal,
+                    'keterangan' => $summary->pengaduanPerluTindakLanjut.' perlu ditindaklanjuti',
                     'ikon' => 'ti-alert-circle',
                     'warna' => 'red',
                     'link' => route('admin.pengaduan.index'),
                 ],
                 [
                     'label' => 'Permohonan Surat',
-                    'nilai' => $surat['total'],
-                    'keterangan' => $surat['perlu_proses'].' sedang diproses',
+                    'nilai' => $summary->suratTotal,
+                    'keterangan' => $summary->suratPerluProses.' sedang diproses',
                     'ikon' => 'ti-file-certificate',
                     'warna' => 'orange',
                     'link' => route('admin.surat.index'),
                 ],
                 [
                     'label' => 'Realisasi APBDes',
-                    'nilai' => $apbdes['persentase'].'%',
-                    'keterangan' => 'tahun anggaran '.$apbdes['tahun_anggaran'],
+                    'nilai' => $summary->apbdesPersentase.'%',
+                    'keterangan' => 'tahun anggaran '.$summary->apbdesTahunAnggaran,
                     'ikon' => 'ti-coins',
                     'warna' => 'green',
                     'link' => route('admin.apbdes.index'),
                 ],
                 [
                     'label' => 'Produk Lapak',
-                    'nilai' => $lapak['total_produk'],
-                    'keterangan' => $lapak['produk_aktif'].' aktif tayang',
+                    'nilai' => $summary->produkTotal,
+                    'keterangan' => $summary->produkAktif.' aktif tayang',
                     'ikon' => 'ti-shopping-bag',
                     'warna' => 'primary',
                     'link' => route('admin.lapak.index'),
                 ],
                 [
                     'label' => 'Laporan Produk',
-                    'nilai' => $lapak['laporan_baru'],
+                    'nilai' => $summary->laporanBaru,
                     'keterangan' => 'laporan baru perlu ditinjau',
                     'ikon' => 'ti-flag',
                     'warna' => 'azure',
@@ -133,20 +124,9 @@ new class extends Component
         <div class="row row-cards">
             @foreach ($statistik as $stat)
                 <div class="col-6 col-lg-4 col-xl-2">
-                    <a href="{{ $stat['link'] }}" class="card card-sm text-decoration-none">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <div class="h1 mb-0">{{ $stat['nilai'] }}</div>
-                                    <div class="text-secondary">{{ $stat['label'] }}</div>
-                                </div>
-                                <span class="bg-{{ $stat['warna'] }} text-{{ $stat['warna'] }}-fg avatar">
-                                    <i class="ti {{ $stat['ikon'] }} icon-lg"></i>
-                                </span>
-                            </div>
-                            <div class="text-secondary small mt-2">{{ $stat['keterangan'] }}</div>
-                        </div>
-                    </a>
+                    <x-ui.stat-card :label="$stat['label']" :nilai="$stat['nilai']"
+                        :keterangan="$stat['keterangan']" :ikon="$stat['ikon']" :warna="$stat['warna']"
+                        :link="$stat['link']" variant="icon-right" />
                 </div>
             @endforeach
         </div>
@@ -177,7 +157,7 @@ new class extends Component
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($pengaduan['terbaru'] as $p)
+                                @forelse ($summary->pengaduanTerbaru as $p)
                                     <tr>
                                         <td>
                                             <a href="{{ route('admin.pengaduan.detail', $p->kode_laporan) }}"
@@ -191,14 +171,11 @@ new class extends Component
                                         <td>
                                             {{ $p->wilayah }}
                                         </td>
-                                        <td style="white-space: normal; overflow-wrap: anywhere;">
+                                        <td class="cell-wrap">
                                             {{ $p->rincian }}
                                         </td>
                                         <td>
-                                            <span
-                                                class="badge badge-pill bg-{{ $p->status === 'selesai' ? 'green text-green-fg' : ($p->status === 'ditolak' ? 'red text-red-fg' : ($p->status === 'verifikasi' ? 'cyan text-cyan-fg' : ($p->status === 'diproses' ? 'orange text-orange-fg' : 'blue text-blue-fg'))) }}">
-                                                {{ ucfirst($p->status) }}
-                                            </span>
+                                            <x-ui.status-badge :status="$p->status" />
                                         </td>
                                         <td class="text-secondary">
                                             {{ $p->created_at->format('d M Y') }}
@@ -271,7 +248,7 @@ new class extends Component
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($surat['terbaru'] as $s)
+                                @forelse ($summary->suratTerbaru as $s)
                                     <tr>
                                         <td>
                                             <span class="badge badge-outline text-blue">{{ $s->kode_surat }}</span>
@@ -287,14 +264,11 @@ new class extends Component
                                         <td>
                                             {{ $s->nama_pemohon }}
                                         </td>
-                                        <td style="white-space: normal; overflow-wrap: anywhere;">
+                                        <td class="cell-wrap">
                                             {{ $s->keperluan }}
                                         </td>
                                         <td>
-                                            <span
-                                                class="badge badge-pill bg-{{ $s->status === 'selesai' ? 'green text-green-fg' : ($s->status === 'ditolak' ? 'red text-red-fg' : ($s->status === 'diproses' ? 'orange text-orange-fg' : 'blue text-blue-fg')) }}">
-                                                {{ ucfirst($s->status) }}
-                                            </span>
+                                            <x-ui.status-badge :status="$s->status" />
                                         </td>
                                         <td class="text-secondary">
                                             {{ $s->tanggal_diajukan->format('d M Y') }}
@@ -329,18 +303,18 @@ new class extends Component
                             <div class="d-flex justify-content-between">
                                 <span class="text-secondary">Total realisasi</span>
                                 <span class="fw-medium">
-                                    Rp {{ number_format($apbdes['total_realisasi'], 0, ',', '.') }}
+                                    Rp {{ number_format($summary->apbdesTotalRealisasi, 0, ',', '.') }}
                                 </span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span class="text-secondary">Total anggaran</span>
                                 <span class="fw-medium">
-                                    Rp {{ number_format($apbdes['total_target'], 0, ',', '.') }}
+                                    Rp {{ number_format($summary->apbdesTotalTarget, 0, ',', '.') }}
                                 </span>
                             </div>
                         </div>
 
-                        @foreach ($apbdes['rincian'] as $r)
+                        @foreach ($summary->apbdesRincian as $r)
                             <div class="mb-3">
                                 <div class="d-flex justify-content-between mb-1">
                                     <span class="text-truncate me-2">{{ $r['judul'] }}</span>
@@ -383,13 +357,13 @@ new class extends Component
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($lapak['produk_terbaru'] as $p)
+                                @forelse ($summary->produkTerbaru as $p)
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center gap-2">
                                                 <img src="{{ asset($p->foto[0]) }}" alt="{{ $p->nama_produk }}"
                                                     class="rounded" width="40" height="40"
-                                                    style="object-fit: cover;">
+                                                    class="img-cover">
                                                 <div class="text-truncate" style="max-width: 220px;">
                                                     <a href="{{ route('admin.lapak.detail', $p->id) }}"
                                                         class="text-reset fw-medium d-block text-truncate">
@@ -406,10 +380,7 @@ new class extends Component
                                             Rp {{ number_format($p->harga, 0, ',', '.') }}
                                         </td>
                                         <td>
-                                            <span
-                                                class="badge badge-pill bg-{{ $p->status === 'aktif' ? 'green text-green-fg' : ($p->status === 'terjual' ? 'blue text-blue-fg' : 'orange text-orange-fg') }}">
-                                                {{ ucfirst($p->status) }}
-                                            </span>
+                                            <x-ui.status-badge :status="$p->status" />
                                         </td>
                                         <td class="text-secondary">
                                             {{ number_format($p->dilihat) }}

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\View;
 
 class BannerController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('pages.admin.banner.index', [
             'bannerList' => collect([
@@ -35,7 +36,7 @@ class BannerController extends Controller
         ]);
     }
 
-    public function tambah()
+    public function tambah(): View
     {
         return view('pages.admin.banner.tambah');
     }
